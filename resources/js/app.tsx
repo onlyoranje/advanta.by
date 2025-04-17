@@ -1,4 +1,12 @@
 import '../css/app.css';
+import 'bootstrap.min.js';
+import 'count-up.min';
+import 'wow.min';
+import 'tiny-slider';
+import 'glightbox.min';
+import 'imagesloaded.min';
+import 'isotope.min';
+import 'main';
 
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';

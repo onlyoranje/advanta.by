@@ -1,4 +1,11 @@
+
 @import 'tailwindcss';
+@import "bootstrap.min.css";
+@import "LineIcons.2.0.css";
+@import "animate.css";
+@import "tiny-slider.css";
+@import "glightbox.min.css";
+@import "main.css";
 
 @plugin 'tailwindcss-animate';
 
@@ -157,3 +164,4 @@
         @apply bg-background text-foreground;
     }
 }
+
