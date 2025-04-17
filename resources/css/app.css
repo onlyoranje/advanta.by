@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @plugin 'tailwindcss-animate';
-@plugin "flyonui";
-@import "flyonui/variants.css";
+@import "./tailus";
 
 /* If you gitignored node_modules use below method */
 

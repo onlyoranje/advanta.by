@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html data-shade="950" data-rounded="3xlarge" lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -25,10 +25,10 @@
     @vite(['resources/js/app.tsx'])
 </head>
 
-<body class="bg-neutral-900">
-
+<body class="bg-white dark:bg-gray-950">
+<main class="overflow-hidden">
 
 @yield('main')
-
+</main>
 </body>
 </html>
