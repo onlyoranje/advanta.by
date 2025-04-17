@@ -39,7 +39,7 @@ Author: GrayGrids
         }
     };
 
-    // for menu scroll 
+    // for menu scroll
     var pageLink = document.querySelectorAll('.page-scroll');
 
     pageLink.forEach(elem => {
@@ -66,7 +66,7 @@ Author: GrayGrids
         navbarToggler.classList.toggle("active");
     })
     // WOW active
-    new WOW().init();
+   // new WOW().init();
 
     let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
     filterButtons.forEach(e =>
@@ -93,13 +93,13 @@ Author: GrayGrids
         };
     };
 
-    //====== counter up 
-    var cu = new counterUp({
+    //====== counter up
+    /*var cu = new counterUp({
         start: 0,
         duration: 2000,
         intvalues: true,
         interval: 100,
         append: " ",
     });
-    cu.start();
+    cu.start();*/
 })();

@@ -1,13 +1,10 @@
-
 @import 'tailwindcss';
-@import "bootstrap.min.css";
-@import "LineIcons.2.0.css";
-@import "animate.css";
-@import "tiny-slider.css";
-@import "glightbox.min.css";
-@import "main.css";
-
 @plugin 'tailwindcss-animate';
+@plugin "flyonui";
+@import "flyonui/variants.css";
+
+/* If you gitignored node_modules use below method */
+
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';

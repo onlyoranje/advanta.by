@@ -1,5 +1,6 @@
 @extends('base')
 @section('title', 'Главная')
 @section('main')
-
+@include("blocks.menu")
+@include("blocks.hero")
 @endsection('main')
