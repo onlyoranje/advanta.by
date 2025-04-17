@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-shade="950" data-rounded="3xlarge" lang="en">
+<html  lang="ru">
 
 <head>
     <meta charset="utf-8" />
@@ -16,19 +16,15 @@
         rel="stylesheet">
 
     <!-- ========================= CSS here ========================= -->
-{{--    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/LineIcons.2.0.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
-    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />--}}
+
+
     @vite(['resources/js/app.tsx'])
 </head>
 
-<body class="bg-white dark:bg-gray-950">
-<main class="overflow-hidden">
+<body class="">
+
 
 @yield('main')
-</main>
+
 </body>
 </html>

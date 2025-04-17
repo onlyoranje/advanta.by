@@ -1,6 +1,11 @@
-@import 'tailwindcss';
-@plugin 'tailwindcss-animate';
-@import "./tailus";
+/*@import 'tailwindcss';
+@plugin 'tailwindcss-animate';*/
+@import "./bootstrap.min";
+@import "./LineIcons.2.0";
+@import "./animate";
+@import "./tiny-slider";
+@import "./glightbox.min";
+@import "./main";
 
 /* If you gitignored node_modules use below method */
 
