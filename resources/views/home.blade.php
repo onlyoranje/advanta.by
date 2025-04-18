@@ -8,5 +8,6 @@
 @include("blocks.achievement")
 @include("blocks.last_news")
 @include("blocks.our_clients")
+@include("blocks.products")
 @include("blocks.footer")
 @endsection('main')
