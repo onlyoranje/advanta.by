@@ -1,12 +1,12 @@
-import '../css/app.css';
-import './bootstrap.min';
+import '../css/app1.css';
+/*import './bootstrap.min';
 import './count-up.min';
 import './wow.min';
 import './tiny-slider';
 import './glightbox.min';
 import './imagesloaded.min';
 import './isotope.min';
-import './main';
+import './main';*/
 
 
 import { createInertiaApp } from '@inertiajs/react';
