@@ -21,7 +21,7 @@
     bottom: 0;
     height: 4px;
     width: 0%;
-    background-color: #473BF0;
+    background-color: #3F8FD2;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
@@ -34,7 +34,7 @@
     height: 70px;
     width: 70px;
     line-height: 70px;
-    background-color: #473BF0;
+    background-color: #3F8FD2;
     color: #fff;
     text-align: center;
     display: inline-block;
@@ -53,7 +53,7 @@
 }
 
 .features.style2 .single-feature h3 a:hover {
-    color: #473BF0;
+    color: #3F8FD2;
 }
 
 .features.style2 .single-feature:hover i {
@@ -86,13 +86,13 @@
     line-height: 60px;
     text-align: center;
     border-radius: 5px;
-    color: #473BF0;
+    color: #3F8FD2;
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
 
 .features.style3 .single-feature:hover i {
-    background-color: #473BF0;
+    background-color: #3F8FD2;
     color: #fff;
 }
 
@@ -114,7 +114,7 @@
 .features .single-feature .serial {
     font-size: 50px;
     font-weight: 800;
-    color: #473BF0;
+    color: #3F8FD2;
     opacity: 0.2;
     position: absolute;
     right: 10px;
@@ -128,7 +128,7 @@
     font-weight: 500;
     display: inline-block;
     margin-bottom: 15px;
-    color: #473BF0;
+    color: #3F8FD2;
     text-transform: uppercase;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -142,7 +142,7 @@
     bottom: 0;
     height: 1px;
     width: 0%;
-    background-color: #473BF0;
+    background-color: #3F8FD2;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
@@ -165,7 +165,7 @@
 }
 
 .features .single-feature h3 a:hover {
-    color: #473BF0;
+    color: #3F8FD2;
 }
 
 .features .single-feature p {
@@ -174,7 +174,7 @@
 }
 
 .features .single-feature:hover span {
-    color: #473BF0;
+    color: #3F8FD2;
     opacity: 1;
 }
 /*======================================
@@ -214,7 +214,7 @@
 }
 
 .latest-news-area .single-news .content-body .cat:hover {
-    color: #473BF0;
+    color: #3F8FD2;
 }
 
 .latest-news-area .single-news .content-body .title {
@@ -230,7 +230,7 @@
 }
 
 .latest-news-area .single-news .content-body .title a:hover {
-    color: #473BF0;
+    color: #3F8FD2;
 }
 
 .latest-news-area .single-news .content-body p {
@@ -293,7 +293,7 @@
 }
 
 .post-details .post-title a:hover {
-    color: #473BF0;
+    color: #3F8FD2;
 }
 
 ul.custom-flex {
@@ -321,7 +321,7 @@ ul.custom-flex {
 }
 
 .post-details .post-meta li a:hover {
-    color: #473BF0;
+    color: #3F8FD2;
 }
 
 .post-details p {
@@ -350,7 +350,7 @@ blockquote {
     margin: 40px 0;
     text-align: left;
     padding: 40px;
-    background-color: #473BF0;
+    background-color: #3F8FD2;
     border: none;
     border-radius: 5px;
     overflow: hidden;
@@ -403,7 +403,7 @@ blockquote span {
     line-height: 20px;
     font-size: 8px;
     color: #fff;
-    background-color: #473BF0;
+    background-color: #3F8FD2;
     position: absolute;
     left: 0;
     top: 5px;
@@ -447,7 +447,7 @@ blockquote span {
     height: 35px;
     width: 35px;
     line-height: 35px;
-    background-color: #473BF0;
+    background-color: #3F8FD2;
     text-align: center;
     border-radius: 4px;
 }
@@ -505,7 +505,7 @@ blockquote span {
 .post-details .post-meta li a i {
     font-weight: 400;
     margin-right: 5px;
-    color: #473BF0;
+    color: #3F8FD2;
 }
 
 .post-details > p {
@@ -535,7 +535,7 @@ blockquote span {
 
 .post-details .post-tags-media .post-tags .tags a:hover {
     color: #fff;
-    background-color: #473BF0;
+    background-color: #3F8FD2;
 }
 
 .post-details .post-tags-media .post-social-media {
@@ -572,7 +572,7 @@ blockquote span {
 }
 
 .comment-title {
-    border-bottom: 1px dashed #473BF0;
+    border-bottom: 1px dashed #3F8FD2;
     font-size: 20px !important;
     font-weight: 600 !important;
     margin-bottom: 40px !important;
@@ -580,7 +580,7 @@ blockquote span {
 }
 
 .comment-reply-title {
-    border-bottom: 1px dashed #473BF0;
+    border-bottom: 1px dashed #3F8FD2;
     font-size: 20px !important;
     font-weight: 600 !important;
     margin-bottom: 40px !important;
@@ -619,7 +619,7 @@ blockquote span {
 }
 
 .post-comments .comments-list li .comment-desc .desc-top h6 .saved {
-    color: #473BF0;
+    color: #3F8FD2;
     font-size: 14px;
     margin-left: 10px;
 }
@@ -641,7 +641,7 @@ blockquote span {
 }
 
 .post-comments .comments-list li .comment-desc .desc-top .reply-link:hover {
-    color: #473BF0;
+    color: #3F8FD2;
 }
 
 .post-comments .comments-list li .comment-desc .desc-top .reply-link i {
@@ -747,7 +747,7 @@ blockquote span {
     color: #081828;
     margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 1px dashed #473BF0;
+    border-bottom: 1px dashed #3F8FD2;
 }
 
 .sidebar .widget.search-widget form {
@@ -800,7 +800,7 @@ blockquote span {
     padding: 0 !important;
     border: none;
     margin-top: -19px;
-    background: #473BF0;
+    background: #3F8FD2;
 }
 
 .sidebar .widget.search-widget form button:hover {
@@ -858,7 +858,7 @@ blockquote span {
 }
 
 .sidebar .widget.popular-feeds .single-popular-feed .feed-desc .post-title a:hover {
-    color: #473BF0;
+    color: #3F8FD2;
 }
 
 .sidebar .widget.popular-feeds .single-popular-feed .feed-desc .time {
@@ -905,11 +905,11 @@ blockquote span {
 .sidebar .widget.categories-widget ul li a:hover {
     color: #fff;
     border-color: transparent;
-    background-color: #473BF0;
+    background-color: #3F8FD2;
 }
 
 .sidebar .widget.categories-widget ul li a:hover span {
-    background: #473BF0;
+    background: #3F8FD2;
     color: #fff;
     border-color: transparent;
 }
@@ -929,7 +929,7 @@ blockquote span {
     text-transform: capitalize;
     font-size: 13px;
     font-weight: 500;
-    background: #473BF0;
+    background: #3F8FD2;
     margin-right: 7px;
     margin-bottom: 10px;
     color: #fff;
@@ -940,13 +940,13 @@ blockquote span {
 }
 
 .popular-tag-widget .tags > a:hover {
-    background-color: #473BF0;
+    background-color: #3F8FD2;
     color: #fff;
     border-color: transparent;
 }
 
 .widget.call-us {
-    background-color: #473BF0;
+    background-color: #3F8FD2;
     background-image: url("../images/about/pattern.png");
     border: none;
 }
@@ -1066,8 +1066,8 @@ blockquote span {
     bottom: 0;
     height: 0;
     width: 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#473BF0));
-    background: linear-gradient(transparent, #473BF0);
+    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#3F8FD2));
+    background: linear-gradient(transparent, #3F8FD2);
     -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
     opacity: 0;
@@ -1141,7 +1141,7 @@ blockquote span {
 }
 
 .team .single-team .info-box .name a:hover {
-    color: #473BF0;
+    color: #3F8FD2;
 }
 
 .team .single-team .info-box .designation {
@@ -1167,7 +1167,7 @@ blockquote span {
 }
 
 .team-details .content .position {
-    color: #473BF0;
+    color: #3F8FD2;
     font-weight: 500;
     font-size: 14px;
     display: block;
@@ -1207,7 +1207,7 @@ blockquote span {
 }
 
 .team-details .content .personal-info li a:hover {
-    color: #473BF0;
+    color: #3F8FD2;
 }
 
 .team-details .content .social {
@@ -1236,7 +1236,7 @@ blockquote span {
 }
 
 .team-details .content .social li a:hover {
-    background-color: #473BF0;
+    background-color: #3F8FD2;
     color: #fff;
 }
 
@@ -1322,7 +1322,7 @@ blockquote span {
 
 .skill-main .progress-bar {
     position: relative;
-    background: #473BF0;
+    background: #3F8FD2;
     border: none;
     text-shadow: none;
     -webkit-box-shadow: none;
@@ -1338,7 +1338,7 @@ blockquote span {
     color: #fff;
     font-weight: 500;
     font-size: 11px;
-    background: #473BF0;
+    background: #3F8FD2;
     height: 35px;
     width: 35px;
     display: block;
@@ -1352,7 +1352,7 @@ blockquote span {
     content: "";
     right: 9px;
     bottom: -13px;
-    border: 8px solid #473BF0;
+    border: 8px solid #3F8FD2;
     border-right-color: transparent;
     border-bottom-color: transparent;
     border-left-color: transparent;
@@ -1362,3 +1362,169 @@ blockquote span {
     border-right-color: transparent;
     border-bottom-color: transparent;
 }
+/*======================================
+	Contact CSS
+========================================*/
+.contact-us {
+    position: relative;
+    background-color: #F4F7FA;
+}
+
+.contact-us .inner-title {
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 1px dashed #3F8FD2;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.contact-us .inner-content {
+    padding: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.contact-us .title {
+    margin-bottom: 30px;
+}
+
+.contact-us .contant-inner-title {
+    margin-bottom: 45px;
+}
+
+.contact-us .single-head {
+    position: relative;
+    z-index: 5;
+}
+
+.contact-us .single-info {
+    text-align: left;
+    margin-bottom: 30px;
+    padding-left: 70px;
+    position: relative;
+}
+
+.contact-us .single-info i {
+    font-size: 18px;
+    display: inline-block;
+    margin-right: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 50px;
+    width: 50px;
+    display: block;
+    text-align: center;
+    background: #3F8FD2;
+    color: #fff;
+    line-height: 50px;
+    border-radius: 5px;
+}
+
+.contact-us .single-info ul {
+    display: inline-block;
+}
+
+.contact-us .single-info ul span {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.contact-us .single-info ul li:last-child {
+    margin-bottom: 0;
+}
+
+.contact-us .single-info ul li {
+    font-weight: 500;
+    display: inline-block;
+    font-size: 13px;
+    color: #081828;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.contact-us .single-info ul li a {
+    font-weight: 500;
+    display: inline-block;
+    font-size: 13px;
+    color: #081828;
+}
+
+.contact-us .single-info ul li a:hover {
+    color: #3F8FD2;
+}
+
+.contact-us .single-info .title {
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #fff;
+    font-size: 18px;
+}
+
+.contact-us .single-info .title span {
+    display: block;
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.contact-us .form-main {
+    margin-right: 50px;
+}
+
+.contact-us .form .form-group {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.contact-us .form .form-group input {
+    height: 55px;
+    line-height: 55px;
+    width: 100%;
+    border: 1px solid #e6e2f5;
+    padding: 0px 20px;
+    color: #333;
+    border-radius: 0px;
+    font-weight: 400;
+    border-radius: 5px;
+}
+
+.contact-us .form .form-group textarea {
+    height: 180px;
+    width: 100%;
+    border: 1px solid #e6e2f5;
+    padding: 15px 20px;
+    color: #333;
+    border-radius: 0px;
+    resize: none;
+    font-weight: 400;
+    border-radius: 5px;
+}
+
+.contact-us .form .button {
+    margin: 0;
+}
+
+.contact-us .form .button .btn {
+    height: 50px;
+    border: none;
+}
+
+.map-section {
+    background-color: #fff;
+}
+
+.map-section .map-container {
+    -webkit-box-shadow: 0 10px 30px rgba(111, 111, 111, 0.1);
+    box-shadow: 0 10px 30px rgba(111, 111, 111, 0.1);
+    padding: 20px;
+    border-radius: 7px;
+}
+
+/*======================================
+	End Contact CSS
+========================================*/

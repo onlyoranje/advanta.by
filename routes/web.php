@@ -21,5 +21,9 @@ Route::get('/test', function () {
     return view('test');
 })->name('test');
 
+Route::get('/contacts', function () {
+    return view('contacts');
+})->name('contacts');
+
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

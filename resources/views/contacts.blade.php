@@ -1,0 +1,12 @@
+@extends('base')
+@section('title', 'Контакты')
+@section('description', 'Контакты')
+@section('main')
+    @include("blocks.header")
+    @include("blocks.menu")
+    @include("blocks.breadcrumbs_overlay")
+    @include("blocks.contact_us")
+    @include("blocks.map")
+
+    @include("blocks.footer")
+@endsection('main')

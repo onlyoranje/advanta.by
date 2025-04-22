@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="index.html"><img src="assets/images/logo/logo.png"
+                        <a class="navbar-brand" href="/"><img src="assets/images/logo/logo.png"
                                                                        alt="#"></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -15,28 +15,32 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link active" href="#">Home</a>
+                                    <a class="nav-link active" href="/">Главная</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#">Services</a>
+                                    <a class="nav-link" href="#">О нас</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#">Portfolio</a>
+                                    <a class="nav-link" href="#">Фото и видео</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Pages
+                                        Продукция
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
+                                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
+                                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
+                                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
                                         <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#">Blog</a>
+                                    <a class="nav-link" href="#">Новости</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contacts</a>
+                                    <a class="nav-link" href="{{route('contacts')}}">Контакты</a>
                                 </li>
                             </ul>
                             <div class="button">

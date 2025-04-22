@@ -1,5 +1,5 @@
-/*@import 'tailwindcss';
-@plugin 'tailwindcss-animate';*/
+@import 'tailwindcss';
+@plugin 'tailwindcss-animate';
 @import "./bootstrap.min";
 @import "./LineIcons.2.0";
 @import "./animate";
