@@ -13,6 +13,36 @@ const mainNavItems: NavItem[] = [
         href: '/dashboard',
         icon: LayoutGrid,
     },
+    {
+        title: 'Категории продукции',
+        href: '/dashboard_categories',
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Продукция',
+        href: '/dashboard',
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Новости',
+        href: '/dashboard',
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Сертификаты',
+        href: '/dashboard',
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Фото и видео',
+        href: '/dashboard',
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Контакты',
+        href: '/dashboard',
+        icon: LayoutGrid,
+    },
 ];
 
 const footerNavItems: NavItem[] = [
