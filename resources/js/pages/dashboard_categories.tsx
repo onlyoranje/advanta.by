@@ -1,5 +1,6 @@
-/*import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';*/
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import AppLayout from '@/layouts/app-layout';
+import { router } from '@inertiajs/react'
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { useState } from 'react'
@@ -35,6 +36,7 @@ export default function Dashboard() {
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
                 <div className="grid auto-rows-min gap-4 md:grid-cols-3"></div>
                 <div className="border-sidebar-border/70 dark:border-sidebar-border relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border md:min-h-min">
+<Form />
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="first_name">First name:</label>
                         <input id="first_name" value={values.first_name} onChange={handleChange} />
@@ -44,6 +46,7 @@ export default function Dashboard() {
                         <input id="email" value={values.email} onChange={handleChange} />
                         <button type="submit">Submit</button>
                     </form>
+
                 </div>
             </div>
         </AppLayout>
