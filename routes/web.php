@@ -15,7 +15,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard_categories', function () {
         return Inertia::render('dashboard_categories');
     })->name('dashboard_categories');
-
+    Route::post('dashboard_categories_add', function () {
+        return Inertia::render('dashboard_categories');
+    })->name('dashboard_categories_add');
 });
 
 Route::get('/', function () {
