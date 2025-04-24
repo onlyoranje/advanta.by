@@ -25,6 +25,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/rubric/{rubric}/delete', [App\Http\Controllers\RubricsController::class, 'delete'])->name('rubric_dashboard_delete');
     Route::delete('/dashboard/rubric/{rubric}', [App\Http\Controllers\RubricsController::class, 'destroyRubric'])->name('rubric_dashboard_destroy');
 
+    Route::get('/dashboard/products', [App\Http\Controllers\ProductsController::class, 'products_db'])->name('product_dashboard');
+    Route::get('/dashboard/products/add', [App\Http\Controllers\ProductsController::class, 'addProduct'])->name('product_dashboard_add');
+
 
 });
 

@@ -48,7 +48,7 @@
                 </a>
                 <ul id="ddmenu_1" class="collapse show dropdown-nav">
                     <li><a href="{{route('rubric_dashboard')}}" class="active"> Категории </a></li>
-                    <li><a href="#" class="active"> Продукция </a></li>
+                    <li><a href="{{route('product_dashboard')}}" class="active"> Продукция </a></li>
                     <li><a href="#" class="active"> Новости </a></li>
                     <li><a href="#" class="active"> Фото и видео </a></li>
                     <li><a href="#" class="active"> Контакты </a></li>

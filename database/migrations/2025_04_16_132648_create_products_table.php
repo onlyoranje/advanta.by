@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 255);
+            $table->foreignId('rubric_id')->constrained()->cascadeOnDelete();
+            $table->text('content')->nullable();
             $table->timestamps();
+            $table->index('created_at');
         });
     }
 
