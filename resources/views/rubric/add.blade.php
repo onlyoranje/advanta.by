@@ -29,11 +29,11 @@
                     </nav>
                 </div>
             </div>
-            <!-- end col -->
-        </div>
-        <!-- end row -->
-    </div>
 
+        </div>
+
+    </div>
+{{--end title--}}
 
     <div class="form-elements-wrapper">
         <div class="row">
