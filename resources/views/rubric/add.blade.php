@@ -1,124 +1,97 @@
-@extends('layouts.dashboard')
+@extends('dashboard.dashboard')
 @section('title', 'Главная')
 
 @section('main')
 
+    <div class="title-wrapper pt-30">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="title d-flex align-items-center flex-wrap">
+                    <h2 class="mr-40">Новая категория </h2>
 
-    <section class="dashboard section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-12 col-12">
-                    <!-- Start Dashboard Sidebar -->
-                @include('layouts.dashboard_profile')
-                <!-- Start Dashboard Sidebar -->
-                </div>
-                <div class="col-lg-9 col-md-12 col-12">
-                    <div class="main-content">
-
-                        <div class="row">
-                            <div class="col-12">
-                                <!-- Start Activity Log -->
-                                <div class="profile-settings-block dashboard-block mt-0">
-                                    <h3 class="block-title">Добавление категории</h3>
-                                    <form class="default-form-style" action="{{route('addRubricToDB')}}" method="post">
-                                        @csrf
-
-                                        <div class="inner-block">
-                                            <div class="row">
-                                                <div class="col-lg-6 col-12">
-                                                    <div class="form-group">
-                                                        <label>Наименование</label>
-                                                        <input type="text" value="{{old('title')}}"  name="title"  required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-12">
-                                                    <div class="form-group">
-                                                        <label>Наименование (род.пад.)</label>
-                                                        <input type="text" value="{{old('title_r')}}"  name="title_r"  required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-12">
-                                                    <div class="form-group">
-                                                        <label>Сортировка</label>
-                                                        <input type="number" value="{{old('sort',500)}}" name="sort"   required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 col-12">
-                                                    <div class="form-group">
-                                                        <label>Родительская категория</label>
-                                                        <div class="selector-head">
-                                                            <span class="arrow"><i class="lni lni-chevron-down"></i></span>
-
-
-                                                            <select name="parent_id" id="select_category" class="user-chosen-select">
-                                                                <option value="">Корневая категория</option>
-                                                                <?
-                                                                $traverse = function ($rubrics, $prefix = '-') use (&$traverse) {
-                                                                    foreach ($rubrics as $rubric) {
-                                                                        echo "<option value=".$rubric->id." ";
-                                                                        echo ">". PHP_EOL.$prefix.' '.$rubric->title."</option>";
-
-                                                                        $traverse($rubric->children, $prefix.'-');
-                                                                    }
-                                                                };
-
-                                                                $traverse($rubrics);
-                                                                ?>
-
-
-
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label>Иконка</label>
-                                                        <div class="selector-head">
-                                                            <span class="arrow"><i class="lni lni-chevron-down"></i></span>
-
-
-                                                            <select name="icon"  class="user-chosen-select">
-                                                                @foreach ($icons as $icon)
-                                                                    <option value="{{$icon}}">{{$icon}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-3">
-                                                    <div>
-                                                        <img class="img-fluid icon" src="{{asset("images/logo/logo.svg")}}" alt="Logo">
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="col-12">
-                                                    <div class="form-group button mb-0 mt-5">
-                                                        <button type="submit" class="btn ">Добавить</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </form>
-                                </div>
-                                <!-- End Activity Log -->
-                            </div>
-
-                        </div>
-
-
-
-                    </div>
                 </div>
             </div>
+            <!-- end col -->
+            <div class="col-md-6">
+                <div class="breadcrumb-wrapper">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="{{route('dashboard')}}">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="{{route('rubric_dashboard')}}">Категории</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Новая категория
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <!-- end col -->
         </div>
-    </section>
+        <!-- end row -->
+    </div>
+
+
+    <div class="form-elements-wrapper">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card-style mb-30">
+
+                    <form class="default-form-style" action="{{route('addRubricToDB')}}" method="post"  enctype="multipart/form-data">
+                        @csrf
+                    <div class="input-style-1">
+                        <label>Наименование</label>
+                        <input type="text" value="{{old('title')}}"  name="title"  required>
+                    </div>
+
+
+                        <div class="input-style-1">
+                        <label>Сортировка</label>
+                        <input type="number" value="{{old('sort',500)}}" name="sort"   required>
+                        </div>
+                  <div class="select-style-1">
+                        <label>Родительская категория</label>
+                        <div class="select-position">
+                            <select name="parent_id" id="select_category" class="user-chosen-select">
+                                <option value="">Корневая категория</option>
+                                <?
+                                $traverse = function ($rubrics, $prefix = '-') use (&$traverse) {
+                                    foreach ($rubrics as $rubric) {
+                                        echo "<option value=".$rubric->id." ";
+                                        echo ">". PHP_EOL.$prefix.' '.$rubric->title."</option>";
+
+                                        $traverse($rubric->children, $prefix.'-');
+                                    }
+                                };
+
+                                $traverse($rubrics);
+                                ?>
 
 
 
+                            </select>
+                        </div>
+                    </div>
+                    <!-- end select -->
+                        <div class="input-style-1">
+                            <label>Описание</label>
+                            <textarea rows="5" name="description">{{old('description')}}</textarea>
+                        </div>
 
+                        <div class="col-12">
+                            <button type="submit" class="main-btn primary-btn btn-hover">
+                                Сохранить
+                            </button>
+                        </div>
+                    </form>
+                    <!-- end select -->
+                </div>
+                </div>
+                </div>
+                </div>
 
 @endsection
 
