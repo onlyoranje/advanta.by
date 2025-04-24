@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use App\Models\User;
 return new class extends Migration
 {
     /**
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-
+        User::create(['name' => 'admin', 'email' => '47@terwa.by','password' => Hash::make('12345678')]);
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
