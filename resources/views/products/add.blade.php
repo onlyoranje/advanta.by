@@ -40,7 +40,7 @@
             <div class="col-lg-6">
                 <div class="card-style mb-30">
 
-                    <form class="default-form-style" action="{{route('addRubricToDB')}}" method="post"  enctype="multipart/form-data">
+                    <form class="default-form-style" action="{{route('addProductToDB')}}" method="post"  enctype="multipart/form-data">
                         @csrf
                         <div class="input-style-1">
                             <label>Наименование</label>
@@ -55,7 +55,7 @@
                         <div class="select-style-1">
                             <label>Категория</label>
                             <div class="select-position">
-                                <select name="pubric_id" id="select_category" class="user-chosen-select">
+                                <select name="rubric_id"  class="user-chosen-select">
                                     <option value="">Категория</option>
                                     <?
                                     $traverse = function ($rubrics, $prefix = '-') use (&$traverse) {
@@ -76,6 +76,10 @@
                             </div>
                         </div>
                         <!-- end select -->
+
+                        <div class="col-12">
+                            <input type="file" name="file">
+                        </div>
                         <div class="input-style-1">
                             <label>Описание</label>
                             <textarea rows="5" name="content">{{old('content')}}</textarea>

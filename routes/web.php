@@ -27,7 +27,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard/products', [App\Http\Controllers\ProductsController::class, 'products_db'])->name('product_dashboard');
     Route::get('/dashboard/products/add', [App\Http\Controllers\ProductsController::class, 'addProduct'])->name('product_dashboard_add');
-
+    Route::post('/dashboard/products', [App\Http\Controllers\ProductsController::class, 'addProductToDB'])->name('addProductToDB');
 
 });
 

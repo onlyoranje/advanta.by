@@ -9,6 +9,18 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+    private const PRODUCT_VALIDATOR = [
+        'title' => 'required|max:50',
+
+        'rubric_id' => 'required',
+
+    ];
+
+    private const PRODUCT_ERROR_MESSAGES = [
+        'required' => 'Заполните это поле',
+        'max' => 'Значение не должно быть длиннее :max символов',
+        'numeric' => 'Введите число'
+    ];
 
  public function products_db(){
      $context = [
@@ -25,26 +37,26 @@ class ProductsController extends Controller
      ];
      return view('products.add',$context);
  }
-    public function addRubricToDB(Request $request){
+    public function addProductToDB(Request $request){
         //dd($request);
-        $validated = $request->validate(self::BB_VALIDATOR,self::BB_ERROR_MESSAGES);
-        $description = $request->description;
+        $validated = $request->validate(self::PRODUCT_VALIDATOR,self::PRODUCT_ERROR_MESSAGES);
+        $description = $request->content;
 
-        $bb = Products::create(['title'=>$validated['title'],'content'=>$description,'rubric_id'=>$validated['rubric_id']]);
+        $bb = Products::create(['title'=>$validated['title'],'content'=>$description,'rubric_id'=>$validated['rubric_id'],'sort'=>$request->sort]);
         if ($request->file) {
             if (is_array($request->file) ) {
                 foreach ($request->file as $file_upload) {
                     if (!is_null($file_upload)) {
                         $filename = $file_upload->store('public/products');
                         $file_name = explode('/', $filename);
-                        UserFile::create(['product_id' => $bb->id, 'url' => $file_name[1].'/'.$file_name[2],'type' => $file_upload->extension(),'size' => $file_upload->getSize(),'original_name' => $file_upload->getClientOriginalName()]);
+                        Product_photo::create(['product_id' => $bb->id, 'url' => $file_name[1].'/'.$file_name[2],'type' => $file_upload->extension(),'size' => $file_upload->getSize(),'original_name' => $file_upload->getClientOriginalName()]);
                     }
                 }
             } else {
 
                 $filename = $request->file->store('public/products');
                 $file_name = explode('/', $filename);
-                UserFile::create(['product_id' => $bb->id, 'url' => $file_name[1].'/'.$file_name[2],'type' => $request->file->extension(),'size' => $request->file->getSize(),'original_name' => $request->file->getClientOriginalName()]);
+                Product_photo::create(['product_id' => $bb->id, 'url' => $file_name[1].'/'.$file_name[2],'type' => $request->file->extension(),'size' => $request->file->getSize(),'original_name' => $request->file->getClientOriginalName()]);
 
             }}
         /*if ($request->parameter){

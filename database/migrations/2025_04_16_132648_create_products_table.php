@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 255);
             $table->foreignId('rubric_id')->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger('sort')->default(500);
             $table->text('content')->nullable();
             $table->timestamps();
             $table->index('created_at');
