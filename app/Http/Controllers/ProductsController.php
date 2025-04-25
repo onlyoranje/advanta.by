@@ -32,7 +32,7 @@ class ProductsController extends Controller
  public function addProduct()
  {
      $context = [
-         'rubrics' => Rubrics::all()
+         'products' => Products::all()
 
      ];
      return view('products.add',$context);
