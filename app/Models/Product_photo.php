@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+
+use Intervention\Image\Laravel\Facades\Image;
 
 class Product_photo extends Model
 {

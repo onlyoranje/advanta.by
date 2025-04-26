@@ -24,7 +24,7 @@ class ProductsController extends Controller
 
  public function products_db(){
      $context = [
-         'products' => Products::all()
+         'products' => Products::orderBy('id')->get()
 
      ];
      return view('products.dashboard', $context);

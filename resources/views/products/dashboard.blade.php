@@ -53,10 +53,10 @@
                                 <h6>Phone</h6>
                             </th>
                             <th>
-                                <h6>Position</h6>
+                                <h6>Добавлено</h6>
                             </th>
                             <th>
-                                <h6>Start Date</h6>
+                                <h6>Обновлено</h6>
                             </th>
                             <th>
                                 <h6>Salary</h6>
@@ -67,10 +67,17 @@
                         <tbody>
                         @if (count($products)>0)
                             @foreach ($products as $product)
+                                @php
+                                $main_photos = \App\Models\Product_photo::where('products_id',$product->id)->orderBy('sort')->limit(1)->get();
+                                if (count($main_photos)>0) $main_photo = $main_photos[0];
+                                @endphp
+
                         <tr>
                             <td>
                                 <div class="employee-image">
-                                    <img src="assets/images/lead/lead-1.png" alt="">
+                                    @if (isset($main_photo))
+                                        <img src="{{Storage::url($main_photo->resize(60, 60))}}" alt="">
+                                    @endif
                                 </div>
                             </td>
                             <td class="min-width">
@@ -83,10 +90,10 @@
                                 <p>(405) 555-0128</p>
                             </td>
                             <td class="min-width">
-                                <p>Project Manager</p>
+                                <p>{{$product->created_at}}</p>
                             </td>
                             <td class="min-width">
-                                <p>16, Feb, 2020</p>
+                                <p>{{$product->updated_at}}</p>
                             </td>
                             <td>
                                 <p>$2345</p>
