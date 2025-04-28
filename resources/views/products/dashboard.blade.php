@@ -100,6 +100,7 @@
                             </td>
                         </tr>
                         <!-- end table row -->
+                                @unset($main_photo)
                             @endforeach
                      @endif
 

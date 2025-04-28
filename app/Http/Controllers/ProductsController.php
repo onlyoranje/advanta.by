@@ -24,7 +24,7 @@ class ProductsController extends Controller
 
  public function products_db(){
      $context = [
-         'products' => Products::orderBy('id')->get()
+         'products' => Products::orderBy('id','desc')->get()
 
      ];
      return view('products.dashboard', $context);
@@ -32,7 +32,7 @@ class ProductsController extends Controller
  public function addProduct()
  {
      $context = [
-         'products' => Products::all()
+         'rubrics' => Rubrics::all()
 
      ];
      return view('products.add',$context);
@@ -42,21 +42,23 @@ class ProductsController extends Controller
         $validated = $request->validate(self::PRODUCT_VALIDATOR,self::PRODUCT_ERROR_MESSAGES);
         $description = $request->content;
 
-        $bb = Products::create(['title'=>$validated['title'],'content'=>$description,'rubric_id'=>$validated['rubric_id'],'sort'=>$request->sort]);
+        $product = Products::create(['title'=>$validated['title'],'content'=>$description,'rubric_id'=>$validated['rubric_id'],'sort'=>$request->sort]);
+
+
         if ($request->file) {
             if (is_array($request->file) ) {
                 foreach ($request->file as $file_upload) {
                     if (!is_null($file_upload)) {
-                        $filename = $file_upload->store('public/products');
+                        $filename = $file_upload->store('products');
                         $file_name = explode('/', $filename);
-                        Product_photo::create(['product_id' => $bb->id, 'url' => $file_name[1].'/'.$file_name[2],'type' => $file_upload->extension(),'size' => $file_upload->getSize(),'original_name' => $file_upload->getClientOriginalName()]);
+                        Product_photo::create(['products_id' => $product->id, 'url' => $file_name[0].'/'.$file_name[1],'type' => $file_upload->extension(),'size' => $file_upload->getSize(),'original_name' => $file_upload->getClientOriginalName()]);
                     }
                 }
             } else {
 
-                $filename = $request->file->store('public/products');
+                $filename = $request->store('products');
                 $file_name = explode('/', $filename);
-                Product_photo::create(['product_id' => $bb->id, 'url' => $file_name[1].'/'.$file_name[2],'type' => $request->file->extension(),'size' => $request->file->getSize(),'original_name' => $request->file->getClientOriginalName()]);
+                Product_photo::create(['products_id' => $product->id, 'url' => $file_name[0].'/'.$file_name[1],'type' => $request->file->extension(),'size' =>$request->file->getSize(),'original_name' => $request->file->getClientOriginalName()]);
 
             }}
         /*if ($request->parameter){
@@ -78,7 +80,7 @@ class ProductsController extends Controller
         }*/
 
         /*$bb->fill(['organization_id'=>Auth::user()->organization->id]);*/
-        $bb->save();
+        $product->save();
 
 
         return redirect()->route('product_dashboard');
