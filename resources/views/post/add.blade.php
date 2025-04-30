@@ -48,38 +48,48 @@
                         </div>
 
 
-
-                        <div class="select-style-1">
-                            <label>Категория</label>
-                            <div class="select-position">
-                                <select name="rubric_id"  class="user-chosen-select">
-                                    <option value="">Категория</option>
-                                    <?
-                                    $traverse = function ($categories, $prefix = '-') use (&$traverse) {
-                                        foreach ($categories as $category) {
-                                            echo "<option value=".$category." ";
-                                            echo ">". PHP_EOL.$prefix.' '.$category."</option>";
-
-                                            $traverse($rubric->children, $prefix.'-');
-                                        }
-                                    };
-
-                                    $traverse($categories);
-                                    ?>
+<div class="row">
+    @if (count($categories)>0)
+    <div class="col-6">
+        <div class="select-style-1">
+            <label>Категория</label>
+            <div class="select-position">
+                <select name="rubric_id"  class="user-chosen-select">
+                    @if (isset($categories))
+                        @foreach ($categories as $category)
+                            <option value="{{$category}}">{{$category}}</option>
+                        @endforeach
+                    @endif
 
 
 
-                                </select>
-                            </div>
-                        </div>
+                </select>
+            </div>
+        </div>
+    </div>
+    @endif
+    <div class="col-6">
+        <div class="input-style-1">
+
+        <label>Новая категория</label>
+        <input type="text" value="{{old('new_category')}}"  name="new_category">
+    </div>
+    </div>
+</div>
+
                         <!-- end select -->
 
                         <div class="col-12">
                             <input type="file" name="file" >
                         </div>
                         <div class="input-style-1">
-                            <label>Описание</label>
-                            <textarea rows="5" name="content">{{old('content')}}</textarea>
+                            <label>Предварительный текст</label>
+                            <textarea rows="5" name="preview_text">{{old('preview_text')}}</textarea>
+                        </div>
+
+                        <div class="input-style-1">
+                            <label>текст</label>
+                            <textarea rows="5" name="text">{{old('text')}}</textarea>
                         </div>
 
                         <div class="col-12">
@@ -93,4 +103,27 @@
             </div>
         </div>
     </div>
+    <script>
+        window.addEventListener("load", function(){
+
+            ClassicEditor
+                .create( document.querySelector( '#editor' ), {
+
+                    ckfinder: {
+                        uploadUrl: '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+                    },
+                    mediaEmbed: {
+                        previewsInData: true
+                    }
+
+                } )
+                .catch( error => {
+                    console.error( error );
+                } );
+            ClassicEditor.replace( 'Resolution', {
+                height: 400
+            } );
+
+        } );
+    </script>
 @endsection
