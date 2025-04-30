@@ -5,7 +5,7 @@ import '../js/db/jquery-3.6.4.min'
 import '../js/db/jquery-ui.min'
 import '../js/db/jquery.fileuploader.min'
 import '../js/db/main'
-
+import '@ckeditor/ckeditor5-build-classic';
 import '../js/db/custom'
 
 
