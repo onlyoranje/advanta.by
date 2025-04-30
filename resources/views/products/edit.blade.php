@@ -40,17 +40,18 @@
             <div class="col-lg-6">
                 <div class="card-style mb-30">
 
-                    <form class="default-form-style" action="{{route('addProductToDB')}}" method="post"  enctype="multipart/form-data">
+                    <form class="default-form-style" action="{{route('product_update',$product->id)}}" method="post"  enctype="multipart/form-data">
                         @csrf
+                        @method('PATCH')
                         <div class="input-style-1">
                             <label>Наименование</label>
-                            <input type="text" value="{{old('title')}}"  name="title"  required>
+                            <input type="text" value="{{old('title',$product->title)}}"  name="title"  required>
                         </div>
 
 
                         <div class="input-style-1">
                             <label>Сортировка</label>
-                            <input type="number" value="{{old('sort',500)}}" name="sort"   required>
+                            <input type="number" value="{{old('sort',$product->sort)}}" name="sort"   required>
                         </div>
                         <div class="select-style-1">
                             <label>Категория</label>
@@ -58,16 +59,17 @@
                                 <select name="rubric_id"  class="user-chosen-select">
                                     <option value="">Категория</option>
                                     <?
-                                    $traverse = function ($rubrics, $prefix = '-') use (&$traverse) {
+                                    $traverse = function ($rubrics,$product, $prefix = '-') use (&$traverse) {
                                         foreach ($rubrics as $rubric) {
                                             echo "<option value=".$rubric->id." ";
+                                            if ($rubric->id == $product->rubric->id) echo "selected";
                                             echo ">". PHP_EOL.$prefix.' '.$rubric->title."</option>";
 
                                             $traverse($rubric->children, $prefix.'-');
                                         }
                                     };
 
-                                    $traverse($rubrics);
+                                    $traverse($rubrics,$product);
                                     ?>
 
 
@@ -76,13 +78,20 @@
                             </div>
                         </div>
                         <!-- end select -->
-
+                        @php
+                            $old_image=[];
+                        @endphp
+                        @if (count($images)>0)
+                            @foreach($images as $image)
+                                    <?php $old_image[]='{"name":"'.$image->original_name.'","id":'.$image->id.',"type":"'.$image->type.'","size":'.$image->size.',"file":"'.$image->id.'","local":"'.Storage::url($image->url).'","data":{"url":"'.Storage::url($image->url).'","thumbnail":"'.Storage::url($image->resize(480,360)) .'","readerForce":true}}'?>
+                            @endforeach
+                        @endif
                         <div class="col-12">
-                            <input type="file" name="file" >
+                            <input type="file" name="file"  data-fileuploader-files='[<?= implode(',',$old_image) ?>]'>
                         </div>
                         <div class="input-style-1">
                             <label>Описание</label>
-                            <textarea rows="5" name="content">{{old('content')}}</textarea>
+                            <textarea rows="5" name="content">{{old('content',$product->content)}}</textarea>
                         </div>
 
                         <div class="col-12">
@@ -97,3 +106,4 @@
         </div>
     </div>
 @endsection
+

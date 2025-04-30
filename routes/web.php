@@ -28,7 +28,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/products', [App\Http\Controllers\ProductsController::class, 'products_db'])->name('product_dashboard');
     Route::get('/dashboard/products/add', [App\Http\Controllers\ProductsController::class, 'addProduct'])->name('product_dashboard_add');
     Route::post('/dashboard/products', [App\Http\Controllers\ProductsController::class, 'addProductToDB'])->name('addProductToDB');
-
+    Route::get('/dashboard/products/{product}/delete',[App\Http\Controllers\ProductsController::class, 'deleteProduct'])->name('product_dashboard_delete');
+    Route::delete('/dashboard/products/{product}',[App\Http\Controllers\ProductsController::class, 'destroyProduct'])->name('product_destroy');
+    Route::get('/dashboard/products/{product}', [App\Http\Controllers\ProductsController::class, 'editProduct'])->name('product_dashboard_edit');
+    Route::patch('/dashboard/products/{product}',[App\Http\Controllers\ProductsController::class, 'updateProduct'])->name('product_update');
 });
 
 

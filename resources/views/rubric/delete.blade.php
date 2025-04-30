@@ -8,11 +8,11 @@
         $route = 'rubric_dashboard_destroy';
         //
         $children = App\Models\Rubrics::descendantsAndSelf($rubric->id)->pluck('id')->toArray();
-        //$used = App\Models\Bb::WhereIn('rubric_id',$children)->pluck('id')->toArray();
+        $used = App\Models\Products::WhereIn('rubric_id',$children)->pluck('id')->toArray();
 
         $errors_form=[];
-        if ($rubric->level==0) $errors_form[] = "Нельзя удалять корневую рубрику";
-        //if (count($used)>0) $errors_form[] = "Данный раздел используется в ".count($used)." объявлениях  ";
+        //if ($rubric->level==0) $errors_form[] = "Нельзя удалять корневую рубрику";
+        if (count($used)>0) $errors_form[] = "Данный раздел используется в ".count($used)." продуктах. Удалите их сначала  ";
     @endphp
     @include('delete_form')
 @endsection

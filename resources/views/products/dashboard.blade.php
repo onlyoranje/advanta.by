@@ -96,7 +96,12 @@
                                 <p>{{$product->updated_at}}</p>
                             </td>
                             <td>
-                                <p>$2345</p>
+                                <div class="action">
+                                <button class="text-danger">
+                                    <a href='{{route('product_dashboard_edit', ['product' => $product->id])}}'><i class="lni lni-pencil"></i></a>
+                                    <a href='{{route('product_dashboard_delete', ['product' => $product->id])}}'><i class="lni lni-trash"></i></a>
+                                </button>
+                                </div>
                             </td>
                         </tr>
                         <!-- end table row -->
