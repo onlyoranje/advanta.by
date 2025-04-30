@@ -32,9 +32,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/dashboard/products/{product}',[App\Http\Controllers\ProductsController::class, 'destroyProduct'])->name('product_destroy');
     Route::get('/dashboard/products/{product}', [App\Http\Controllers\ProductsController::class, 'editProduct'])->name('product_dashboard_edit');
     Route::patch('/dashboard/products/{product}',[App\Http\Controllers\ProductsController::class, 'updateProduct'])->name('product_update');
+
+
+    Route::get('/dashboard/posts/', [App\Http\Controllers\PostsController::class, 'posts_dashboard'])->name('posts_dashboard');
+    Route::post('/dashboard/post', [App\Http\Controllers\PostsController::class, 'post_add_db'])->name('post_dashboard_add_db');
+    Route::get('/dashboard/post/add', [App\Http\Controllers\PostsController::class, 'post_add'])->name('post_dashboard_add');
+    Route::get('/dashboard/post/{post}', [App\Http\Controllers\PostsController::class, 'post_dashboard'])->name('post_dashboard');
+    Route::patch('/dashboard/post/{post}', [App\Http\Controllers\PostsController::class, 'edit_post'])->name('edit_post');
+    Route::get('/dashboard/post/{post}/delete', [App\Http\Controllers\PostsController::class, 'delete_post'])->name('delete_post');
+    Route::delete('/dashboard/post/{post}', [App\Http\Controllers\PostsController::class, 'destroy_post'])->name('destroy_post');
+
 });
 
-
+Route::get('/posts/', [App\Http\Controllers\PostsController::class, 'posts'])->name('posts');
+Route::get('/post/{post}', [App\Http\Controllers\PostsController::class, 'post'])->name('post');
 
 
 
