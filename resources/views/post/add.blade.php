@@ -89,7 +89,7 @@
 
                         <div class="input-style-1">
                             <label>текст</label>
-                            <textarea rows="5" name="text">{{old('text')}}</textarea>
+                            <textarea rows="5" id="editor" name="text">{{old('text')}}</textarea>
                         </div>
 
                         <div class="col-12">
@@ -121,7 +121,7 @@
                     console.error( error );
                 } );
             ClassicEditor.replace( 'Resolution', {
-                height: 400
+                height: 500
             } );
 
         } );

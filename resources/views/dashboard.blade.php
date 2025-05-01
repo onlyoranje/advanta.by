@@ -317,4 +317,7 @@
 
 
 </body>
+<script src="/assets/vendor/ckeditor5/build/ckeditor.js"></script>
+<script type="text/javascript" src="/js/ckfinder/ckfinder.js"></script>
+<script>CKFinder.config( { connectorPath: '/ckfinder/connector' } );</script>
 </html>
