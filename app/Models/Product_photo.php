@@ -33,6 +33,9 @@ class Product_photo extends Model
             if (!file_exists($save_path)) {
                 mkdir($save_path, 755, true);
             }
+
+
+
             /*$thumbnail = Image::make(Storage::path('/public/').$this->url);
             $thumbnail->fit($w, $h);
             $thumbnail->save(Storage::path('/public/').'thumbnails/'.$w.'x'.$h.'/'.$this->url);*/
