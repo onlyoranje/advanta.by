@@ -73,7 +73,7 @@
                                     <td>
                                         <div class="employee-image">
                                             @if (isset($post->image))
-                                                <img src="{{Storage::url($post->image->resize(60, 60))}}" alt="">
+                                                <img src="{{Storage::url($post->resizeImage($post->image,640,480))}}" alt="">
                                             @endif
                                         </div>
                                     </td>
@@ -81,7 +81,7 @@
                                         <p>{{$post->title}}</p>
                                     </td>
                                     <td class="min-width">
-                                        <p><a href="#0">{{$product->category}}</a></p>
+                                        <p><a href="#0">{{$post->category}}</a></p>
                                     </td>
                                     <td class="min-width">
                                         <p>(405) 555-0128</p>

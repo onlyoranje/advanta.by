@@ -13,7 +13,7 @@ class PostsController extends Controller
     //
     public function posts(Request $request)
     {
-        $posts=Post::where('active','Y')->where(function($query)
+        $posts=Posts::where('active','Y')->where(function($query)
         {
             global $request;
             if ($request->category) $query->where('category', $request->category );
@@ -41,7 +41,7 @@ class PostsController extends Controller
             $trim_tag[]=trim($tag);
         }
         $trim_tag = implode(',',$trim_tag);
-        $post = Post::create(['title'=>$request->title,'preview_text'=>$request->preview_text,'content'=>$request->text,'user_id'=>Auth::id(),'tags'=>$trim_tag]);
+        $post = Posts::create(['title'=>$request->title,'preview_text'=>$request->preview_text,'content'=>$request->text,'user_id'=>Auth::id(),'tags'=>$trim_tag]);
         if ($request->new_category){
             $post->fill(['category'=> $request->new_category]);
             $post->save();
@@ -51,7 +51,7 @@ class PostsController extends Controller
         }
         if ($request->file) {
 
-            $filename = $request->file[0]->store('public');
+            $filename = $request->file[0]->store('media');
             $file_name = explode('/', $filename);
             $post->fill(['image'=> $file_name[1]]);
             $post->save();
@@ -61,11 +61,11 @@ class PostsController extends Controller
 
     }
     public function post_dashboard(Post $post){
-        $categories = Post::whereNotNull('category')->groupBy('category')->pluck('category');
+        $categories = Posts::whereNotNull('category')->groupBy('category')->pluck('category');
         $title = 'Редактирование новости '.$post->title;
         return view('post.edit',['title'=>$title,'post'=>$post,'categories'=>$categories]);
     }
-    public function post(Post $post){
+    public function post(Posts $post){
         $title = $post->title;
         $stat = PostStatistic::updateOrCreate(['post_id'=>$post->id,'user_token'=> Session::getId()]);
         if ($stat->updated_at < date('Y-m-d H:i:s',strtotime('-1 day')) and $stat->user_token==Session::getId())
