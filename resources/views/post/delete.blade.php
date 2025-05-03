@@ -1,5 +1,5 @@
-@extends('layouts.dashboard')
-@section('title', $title)
+@extends('dashboard.dashboard')
+@section('title',' Удаление новости')
 @php
     $title= "Удалить статью ".$post->title;
     $id = ['post'=>$post->id];
@@ -7,6 +7,6 @@
     $errors_form=[];
     @endphp
 @section('main')
-    @include('layouts.delete_form')
+    @include('delete_form')
 
 @endsection

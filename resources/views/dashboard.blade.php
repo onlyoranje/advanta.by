@@ -155,7 +155,7 @@
                         </div>
                         <!-- notification end -->
                         <!-- message start -->
-                        <div class="header-message-box ml-15 d-none d-md-flex">
+                       {{-- <div class="header-message-box ml-15 d-none d-md-flex">
                             <button class="dropdown-toggle" type="button" id="message" data-bs-toggle="dropdown"
                                     aria-expanded="false">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -206,10 +206,10 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div>--}}
                         <!-- message end -->
                         <!-- profile start -->
-                        <div class="profile-box ml-15">
+                       {{-- <div class="profile-box ml-15">
                             <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="profile-info">
@@ -258,7 +258,7 @@
                                     <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div>--}}
                         <!-- profile end -->
                     </div>
                 </div>

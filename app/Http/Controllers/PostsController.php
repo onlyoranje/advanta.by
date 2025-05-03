@@ -60,7 +60,7 @@ class PostsController extends Controller
         return redirect()->route('posts_dashboard');
 
     }
-    public function post_dashboard(Post $post){
+    public function post_dashboard(Posts $post){
         $categories = Posts::whereNotNull('category')->groupBy('category')->pluck('category');
         $title = 'Редактирование новости '.$post->title;
         return view('post.edit',['title'=>$title,'post'=>$post,'categories'=>$categories]);
@@ -82,7 +82,7 @@ class PostsController extends Controller
         $breadcrumbs['list'][] = Array('route'=>'posts','title'=>$post->category,'param'=>'?category='.$post->category);
         return view('post.detail',['title'=>$title,'post'=>$post,'breadcrumbs'=>$breadcrumbs]);
     }
-    public function edit_post(Post $post,Request $request){
+    public function edit_post(Posts $post,Request $request){
         $trim_tag=Array();
         $tags = explode(',',$request->tags);
         foreach ($tags as $tag){
@@ -100,7 +100,7 @@ class PostsController extends Controller
         }
         if ($request->file) {
 
-            $filename = $request->file->store('public');
+            $filename = $request->file->store('media');
             $file_name = explode('/', $filename);
             $post->fill(['image'=> $file_name[1]]);
             $post->save();
@@ -108,11 +108,11 @@ class PostsController extends Controller
         }
         return redirect()->route('posts_dashboard');
     }
-    public function delete_post(Post $post){
+    public function delete_post(Posts $post){
         $title = "Удалить новость ".$post->title;
         return view('post.delete',['title'=>$title,'post'=>$post]);
     }
-    public function destroy_post(Post $post){
+    public function destroy_post(Posts $post){
         $post->delete();
         return redirect()->route('posts_dashboard');
     }
