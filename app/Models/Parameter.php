@@ -10,7 +10,7 @@ class Parameter extends Model
     protected $fillable=['name','type','measure', 'sort','options','min','max'];
     use HasFactory;
     public function rubrics() {
-        return $this->belongsToMany(Rubric::class);
+        return $this->belongsToMany(Rubrics::class);
     }
     public function parametertypes(){
         return $this->belongsTo(ParameterType::class);
