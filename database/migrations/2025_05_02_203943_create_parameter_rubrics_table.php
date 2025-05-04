@@ -11,9 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('parameter_rubrics', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+
+            Schema::create('parameter_rubric', function (Blueprint $table) {
+                //$table->id();
+
+                $table->unsignedBigInteger('rubric_id');
+                $table->unsignedBigInteger('parameter_id');
+                $table->foreign('rubric_id')->references('id')->on('rubrics')->cascadeOnDelete();
+                $table->foreign('parameter_id')->references('id')->on('parameters')->cascadeOnDelete();
+
         });
     }
 

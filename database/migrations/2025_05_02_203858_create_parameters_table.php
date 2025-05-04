@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('parameters', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
+            $table->string("type");
+            $table->string("measure")->nullable();
+            $table->json('options')->nullable();
+            $table->integer('min')->nullable();
+            $table->integer('max')->nullable();
+
+            $table->unsignedBigInteger("sort");
             $table->timestamps();
         });
     }

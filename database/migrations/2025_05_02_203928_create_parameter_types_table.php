@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('parameter_types', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
+            $table->string('type_name')->nullable();
+            $table->json('properties')->nullable();
             $table->timestamps();
         });
     }
