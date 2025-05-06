@@ -84,6 +84,62 @@
                             <label>Описание</label>
                             <textarea rows="5" name="content">{{old('content')}}</textarea>
                         </div>
+                        <div class="col-12">
+
+                        @if (count($parameters)>0)
+                            @foreach($parameters as $parameter)
+                                @if ($parameter->type == 'option')
+                                    <div class="col-6 input-parameter" style="display:none" id="parameter_{{$parameter->id}}">
+                                        <div class="select-style-1 mb-3">
+                                            <label>{{$parameter->name}}<? if ($parameter->measure) echo', '.$parameter->measure?></label>
+                                            <div class="select-position">
+                                            <select name="parameter[{{$parameter->id}}]" >
+                                                <option disabled selected>- выбрать -</option>
+                                                @php
+                                                    $options = json_decode($parameter->options);
+                                                @endphp
+                                                @foreach($options as $option)
+                                                    <option value="{{$option}}">{{$option}}</option>
+                                                @endforeach
+                                            </select>
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                @elseif ($parameter->type == 'checkbox')
+                                    <div class="col-6 input-parameter" style="display:none" id="parameter_{{$parameter->id}}">
+
+                                        <div class="form-check checkbox-style checkbox-success mb-20">
+
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input width-auto" name="parameter[{{$parameter->id}}]" value="Y">
+                                                <label class="form-check-label">{{$parameter->name}}<? if ($parameter->measure) echo', '.$parameter->measure?></label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                @elseif ($parameter->type == 'number')
+                                    <div class="col-6 input-parameter" style="display:none" id="parameter_{{$parameter->id}}">
+                                        <div class="input-style-1 mb-3">
+                                            <label>{{$parameter->name}}<? if ($parameter->measure) echo', '.$parameter->measure?>
+                                            </label>
+                                            <input type="{{$parameter->type}}" step="0.01" name="parameter[{{$parameter->id}}]" class="form-control" @if ($parameter->max) max="{{$parameter->max}}" @endif @if ($parameter->min)min="{{$parameter->min}}" @endif>
+                                        </div>
+                                    </div>
+
+                                @else
+                                    <div class="col-6 input-parameter" style="display:none" id="parameter_{{$parameter->id}}">
+                                        <div class="mb-3">
+                                            <label class="form-label">{{$parameter->name}}<? if ($parameter->measure) echo', '.$parameter->measure?>
+                                            </label>
+                                            <input type="{{$parameter->type}}" name="parameter[{{$parameter->id}}]" class="form-control">
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+                        </div>
+
 
                         <div class="col-12">
                             <button type="submit" class="main-btn primary-btn btn-hover">
@@ -96,4 +152,38 @@
             </div>
         </div>
     </div>
+    <script>
+
+        window.addEventListener("load", function(){
+
+
+            window.json_parameter_rubric = @json($parameter_rubric);
+
+
+            $("input[name*='parameter']").change(function () {
+                if (typeof ($(this).attr("min"))!= "undefined")
+                {
+                    var min = $(this).attr("min");
+                    if ($(this).val()<=min) $(this).val(min)
+                    console.log(min+' '+$(this).val)
+                }
+
+                if (typeof ($(this).attr("max"))!= "undefined")
+                {
+                    var max = $(this).attr("max");
+                    if ($(this).val()>=max) $(this).val(max)
+                    console.log(max+' '+$(this).val)
+                }
+            });
+
+            $("select[name='rubric_id']").change(function () {
+                Parameter_Rubric($(this).val())
+
+            })
+
+
+        })
+
+
+    </script>
 @endsection

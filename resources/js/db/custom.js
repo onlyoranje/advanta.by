@@ -271,3 +271,17 @@ $(document).ready(function () {
     });
 
 });
+
+window.Parameter_Rubric = function (rubric_id) {
+    $(".input-parameter").hide();
+
+
+    $.each(json_parameter_rubric, function (key, data) {
+
+
+        if (rubric_id == data['rubrics_id']) {
+            console.log(data['rubrics_id']+'='+rubric_id+'='+data['parameter_id'])
+            $('#parameter_' + data['parameter_id']).show()
+        }
+    })
+}

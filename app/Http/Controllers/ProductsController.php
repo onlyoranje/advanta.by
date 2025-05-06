@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Parameter;
+use App\Models\ParameterRubric;
 use App\Models\Product_photo;
 use App\Models\Products;
 use App\Models\Rubrics;
@@ -33,8 +35,9 @@ class ProductsController extends Controller
  public function addProduct()
  {
      $context = [
-         'rubrics' => Rubrics::all()
-
+         'rubrics' => Rubrics::all(),
+         'parameters' => Parameter::all(),
+         'parameter_rubric'=>ParameterRubric::all()
      ];
      return view('products.add',$context);
  }
