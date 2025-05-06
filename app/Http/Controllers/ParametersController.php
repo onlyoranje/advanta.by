@@ -34,15 +34,17 @@ class ParametersController extends Controller
         return view('parameter.add',[ 'types'=>$types,'rubrics'=>$rubrics]);
     }
     public function addParameter(Request $request){
+
         $validated = $request->validate(self::PAR_VALIDATOR,self::PAR_ERROR_MESSAGES);
         $options = NULL;
         $limit_min = NULL;
         $limit_max = NULL;
         $options_array = $request->options;
         $options_array = array_filter($options_array, fn($n) => !is_null($n));
-        if ($request->type=='options') $options = json_encode($options_array);
+        if ($request->type=='option') $options = json_encode($options_array);
         if ($request->type=='number' and isset($request->min)) $limit_min = $request->min;
         if ($request->type=='number' and isset($request->max)) $limit_max = $request->max;
+
         $parameter = Parameter::create(['name'=>$validated['name'],'measure'=>$request->measure,'type'=>$request->type,'sort'=>$request->sort,'options'=>$options,'min'=>$limit_min,'max'=>$limit_max]);
         $parameter->rubrics()->attach($request->rubrics);
         return redirect()->route('parameter_dashboard');
@@ -50,7 +52,7 @@ class ParametersController extends Controller
     public function detail($id){
         $parameter     = Parameter::find($id);
         $types = ParameterType::get();
-        $rubrics = Rubric::orderBy('sort')->get()->toTree();
+        $rubrics = Rubrics::orderBy('sort')->get()->toTree();
         //$parameter_rubric = $parameter->rubrics->pluck('id');
         return view('parameter.edit', ['parameter'=>$parameter,'rubrics'=>$rubrics,'types'=>$types]);
 
@@ -64,7 +66,7 @@ class ParametersController extends Controller
         if ($request->type=='number' and isset($request->max)) $limit_max= $request->max;
         $options_array = $request->options;
         $options_array = array_filter($options_array, fn($n) => !is_null($n));
-        if ($request->type=='options') $options = json_encode($options_array);
+        if ($request->type=='option') $options = json_encode($options_array);
 
 //dd($options);
         $parameter->fill(['name'=>$validated['name'],'measure'=>$request->measure,'type'=>$request->type,'sort'=>$request->sort,'options'=>$options,'min'=>$limit_min,'max'=>$limit_max]);
@@ -74,11 +76,11 @@ class ParametersController extends Controller
 
         foreach ($parameter_rubric as $rubric_id){
 
-            if (!in_array($rubric_id,$parameter_rubric_update)) ParameterRubric::where('rubric_id', $rubric_id)->where('parameter_id', $parameter->id)->delete();
+            if (!in_array($rubric_id,$parameter_rubric_update)) ParameterRubric::where('rubrics_id', $rubric_id)->where('parameter_id', $parameter->id)->delete();
         }
         $parameter_rubric = $parameter->rubrics->toArray();
         foreach ($parameter_rubric_update as $pr){
-            if (!in_array($pr,$parameter_rubric)) ParameterRubric::updateOrCreate(['rubric_id'=>$pr,'parameter_id'=>$parameter->id]);
+            if (!in_array($pr,$parameter_rubric)) ParameterRubric::updateOrCreate(['rubrics_id'=>$pr,'parameter_id'=>$parameter->id]);
         }
 
         // dd($request);
