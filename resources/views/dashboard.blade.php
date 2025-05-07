@@ -22,7 +22,7 @@
 <aside class="sidebar-nav-wrapper">
     <div class="navbar-logo">
         <a href="index.html">
-            <img src="assets/images/logo/logo.svg" alt="logo" />
+            <img src="assets/images/logo/logo.svg" alt="logo" width="150" />
         </a>
     </div>
     <nav class="sidebar-nav">
@@ -116,7 +116,7 @@
                                 <li>
                                     <a href="#0">
                                         <div class="image">
-                                            <img src="assets/images/lead/lead-6.png" alt="" />
+                                            <img src="" alt="" />
                                         </div>
                                         <div class="content">
                                             <h6>
@@ -136,7 +136,7 @@
                                 <li>
                                     <a href="#0">
                                         <div class="image">
-                                            <img src="assets/images/lead/lead-1.png" alt="" />
+                                            <img src="" alt="" />
                                         </div>
                                         <div class="content">
                                             <h6>

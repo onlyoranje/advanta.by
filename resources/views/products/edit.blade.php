@@ -110,10 +110,11 @@
 
                                                         @endphp
                                                         @foreach($options as $option)
-                                                            <option value="{{$option}}"
-                                       {{($parameter_values[$parameter->id]==$option)?  'selected' : ''}}
+                                                            <option value="{{$option}}" {{$product->getProductParameter($parameter->id)}}
+                                       {{($product->getProductParameter($parameter->id)==$option)?  'selected' : ''}}
                                                             >
-                                                                {{$option}} - {{$parameter_values}}
+                                                                {{$option}}
+
                                                             </option>
                                                         @endforeach
                                                     </select>
@@ -127,7 +128,7 @@
                                             <div class="form-check checkbox-style checkbox-success mb-20">
 
                                                 <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input width-auto" name="parameter[{{$parameter->id}}]" value="Y">
+                                                    <input type="checkbox" class="form-check-input width-auto" name="parameter[{{$parameter->id}}]" {{($product->getProductParameter($parameter->id)=='Y')?  'checked' : ''}} value="Y">
                                                     <label class="form-check-label">{{$parameter->name}}<? if ($parameter->measure) echo', '.$parameter->measure?></label>
                                                 </div>
                                             </div>
@@ -138,7 +139,7 @@
                                             <div class="input-style-1 mb-3">
                                                 <label>{{$parameter->name}}<? if ($parameter->measure) echo', '.$parameter->measure?>
                                                 </label>
-                                                <input type="{{$parameter->type}}" step="0.01" name="parameter[{{$parameter->id}}]" class="form-control" @if ($parameter->max) max="{{$parameter->max}}" @endif @if ($parameter->min)min="{{$parameter->min}}" @endif>
+                                                <input type="{{$parameter->type}}" step="0.01" name="parameter[{{$parameter->id}}]" class="form-control" @if ($parameter->max) max="{{$parameter->max}}" @endif @if ($parameter->min)min="{{$parameter->min}}" @endif value="{{$product->getProductParameter($parameter->id)}}">
                                             </div>
                                         </div>
 
@@ -147,7 +148,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label">{{$parameter->name}}<? if ($parameter->measure) echo', '.$parameter->measure?>
                                                 </label>
-                                                <input type="{{$parameter->type}}" name="parameter[{{$parameter->id}}]" class="form-control">
+                                                <input type="{{$parameter->type}}" name="parameter[{{$parameter->id}}]" class="form-control" value="{{$product->getProductParameter($parameter->id)}}">
                                             </div>
                                         </div>
                                     @endif

@@ -153,20 +153,20 @@ $sort = 0;
 
             }
         }
-       /* if ($request->parameter) {
+        if ($request->parameter) {
             $parameters_new = [];
-            $parameters_old = BbParameters::where('bb_id',$bb->id)->pluck('parameter_id')->toArray();;
+            $parameters_old = ProductParameters::where('products_id',$product->id)->pluck('parameter_id')->toArray();;
 
             foreach ($request->parameter as $parameter_id => $value) {
                 if (!is_null($value)) {
                     $parameters_new[] = $parameter_id;
-                    BbParameters::updateOrCreate(['bb_id' => $bb->id, 'parameter_id' => $parameter_id], ['value' => $value]);
+                    ProductParameters::updateOrCreate(['products_id' => $product->id, 'parameter_id' => $parameter_id], ['value' => $value]);
                 }
 
             }
 
-            BbParameters::where('bb_id', $bb->id)->whereIn('parameter_id', array_diff($parameters_old,$parameters_new))->delete();
-        }*/
+            ProductParameters::where('products_id', $product->id)->whereIn('parameter_id', array_diff($parameters_old,$parameters_new))->delete();
+        }
 
 
         $product->save();

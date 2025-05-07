@@ -13,4 +13,13 @@ class Products extends Model
     public function product_photo() {
         return $this->hasMany(Product_photo::class)->orderBy('sort', 'asc');
     }
+    public function parameters()
+    {
+        return $this->hasMany(ProductParameters::class,'products_id');
+    }
+    public function getProductParameter($parameter_id){
+        $result = ProductParameters::where('products_id',$this->id)->where('parameter_id',$parameter_id)->limit(1)->get();
+        if (isset($result[0])) return $result[0]->value;
+    }
+
 }
