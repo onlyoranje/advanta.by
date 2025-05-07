@@ -22,7 +22,7 @@
 <aside class="sidebar-nav-wrapper">
     <div class="navbar-logo">
         <a href="index.html">
-            <img src="assets/images/logo/logo.svg" alt="logo" width="150" />
+            <img src="/assets/images/logo/logo.svg" alt="logo" width="150" />
         </a>
     </div>
     <nav class="sidebar-nav">
