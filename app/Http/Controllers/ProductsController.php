@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Parameter;
 use App\Models\ParameterRubric;
+use App\Models\ProductParameters;
 use App\Models\Product_photo;
 use App\Models\Products;
 use App\Models\Rubrics;
@@ -35,7 +36,7 @@ class ProductsController extends Controller
  public function addProduct()
  {
      $context = [
-         'rubrics' => Rubrics::all(),
+         'rubrics' => Rubrics::orderBy('sort')->orderBy('title')->get()->toTree(),
          'parameters' => Parameter::all(),
          'parameter_rubric'=>ParameterRubric::all()
      ];
@@ -65,25 +66,13 @@ $sort = 0;
                 Product_photo::create(['products_id' => $product->id, 'url' => $file_name[0].'/'.$file_name[1],'type' => $request->file->extension(),'size' =>$request->file->getSize(),'original_name' => $request->file->getClientOriginalName(),'sort'=>$sort++]);
 
             }}
-        /*if ($request->parameter){
+        if ($request->parameter){
             foreach ($request->parameter as $parameter_id=>$value){
-                if (!is_null($value))  BbParameters::create(['bb_id' => $bb->id,'value'=>$value, 'parameter_id'=>$parameter_id]);
+                if (!is_null($value))  ProductParameters::create(['products_id' => $product->id,'value'=>$value, 'parameter_id'=>$parameter_id]);
             }
-        }*/
+        }
 
-       /* $bbprice = BbPrice::create(['bb_id' => $bb->id, 'price_type_id'=>$validated['price_type']]);
-        $price = str_replace(',','.',$request->price);
-        $bbprice->fill(['price'=>$price]);
-        $bbprice->save();*/
 
-        /*if (is_array($request->contact)) {
-            foreach ($request->contact as $contact_type_id=>$contact_value) {
-                if ($contact_value)  BbContact::create(['value'=>$contact_value,'bb_id'=>$bb->id,'contact_type_id'=>$contact_type_id]);
-            }
-
-        }*/
-
-        /*$bb->fill(['organization_id'=>Auth::user()->organization->id]);*/
         $product->save();
 
 
@@ -92,10 +81,12 @@ $sort = 0;
  public function editProduct(Products $product)
  {
      $context = [
-         'rubrics' => Rubrics::all(),
+         'rubrics' => Rubrics::orderBy('sort')->orderBy('title')->get()->toTree(),
          'product' => $product,
-         'images' => Product_photo::where('products_id',$product->id)->orderBy('sort')->get()
-
+         'images' => Product_photo::where('products_id',$product->id)->orderBy('sort')->get(),
+         'parameters' => Parameter::all(),
+         'parameter_rubric'=>ParameterRubric::all(),
+         'parameter_values'=>ProductParameters::where('products_id',$product->id)->get()
      ];
 
      return view('products.edit',$context);

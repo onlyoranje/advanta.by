@@ -29,8 +29,8 @@ return new class extends Migration
         $id_2 = Rubrics::create(['title' => 'Картриджи угольные','sort'=> 200,'level' => 0]);
         $id_3 = Rubrics::create(['title' => 'Картриджи умягчающие','sort'=> 300,'level' => 0]);
 
-        $id_4 = Rubrics::create(['title' => 'Картриджи вспененные','parent_id' => $id_1->id,'sort'=> 100,'level' => 0]);
-        $id_5 = Rubrics::create(['title' => 'Картриджи веревочные','parent_id' => $id_1->id,'sort'=> 200,'level' => 0]);
+        $id_4 = Rubrics::create(['title' => 'Картриджи вспененные','parent_id' => $id_1->id,'sort'=> 100,'level' => 1]);
+        $id_5 = Rubrics::create(['title' => 'Картриджи веревочные','parent_id' => $id_1->id,'sort'=> 200,'level' => 1]);
 
 }
     /**
