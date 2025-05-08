@@ -73,6 +73,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/parameter_type/{type}/delete', [App\Http\Controllers\ParameterTypesController::class, 'delete'])->name('type_dashboard_delete');
     Route::delete('/dashboard/parameter_type/{type}', [App\Http\Controllers\ParameterTypesController::class, 'destroy'])->name('parameter_type_destroy');
 
+    Route::get('/dashboard/medias/', [App\Http\Controllers\MediasController::class, 'medias_dashboard'])->name('medias_dashboard');
+    Route::post('/dashboard/media', [App\Http\Controllers\MediasController::class, 'media_add_db'])->name('media_dashboard_add_db');
+    Route::get('/dashboard/media/add', [App\Http\Controllers\MediasController::class, 'media_add'])->name('media_dashboard_add');
+    Route::get('/dashboard/media/{media}', [App\Http\Controllers\MediasController::class, 'media_edit'])->name('media_dashboard_edit');
+    Route::patch('/dashboard/media/{media}', [App\Http\Controllers\MediasController::class, 'media_update'])->name('media_dashboard_update');
+    Route::get('/dashboard/media/{media}/delete', [App\Http\Controllers\MediasController::class, 'media_delete'])->name('media_dashboard_delete');
+    Route::delete('/dashboard/media/{media}', [App\Http\Controllers\MediasController::class, 'media_destroy'])->name('media_destroy');
+
 });
 
 

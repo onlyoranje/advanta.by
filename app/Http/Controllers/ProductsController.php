@@ -179,6 +179,7 @@ $sort = 0;
         return view('products.delete', ['product'=>$product]);
     }
     public function destroyProduct(Products $product){
+        $product->parameters()->delete();
         $product->delete();
         return redirect()->route('product_dashboard');
     }
