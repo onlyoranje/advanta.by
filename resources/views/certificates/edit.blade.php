@@ -6,7 +6,7 @@
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="title d-flex align-items-center flex-wrap">
-                    <h2 class="mr-40">Редактирование {{$media->title}} </h2>
+                    <h2 class="mr-40">Редактирование {{$certificates->title}} </h2>
 
                 </div>
             </div>
@@ -19,10 +19,10 @@
                                 <a href="{{route('dashboard')}}">Dashboard</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{route('medias_dashboard')}}">Фото и видео</a>
+                                <a href="{{route('certificates_dashboard')}}">Фото и видео</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Редактирование {{$media->title}}
+                                Редактирование {{$certificates->title}}
                             </li>
                         </ol>
                     </nav>

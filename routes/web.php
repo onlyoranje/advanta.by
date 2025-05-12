@@ -81,6 +81,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/media/{media}/delete', [App\Http\Controllers\MediasController::class, 'media_delete'])->name('media_dashboard_delete');
     Route::delete('/dashboard/media/{media}', [App\Http\Controllers\MediasController::class, 'media_destroy'])->name('media_destroy');
 
+    Route::get('/dashboard/certificates/', [App\Http\Controllers\CertificatesController::class, 'certificates_dashboard'])->name('certificates_dashboard');
+    Route::post('/dashboard/certificates', [App\Http\Controllers\CertificatesController::class, 'certificates_add_db'])->name('certificates_dashboard_add_db');
+    Route::get('/dashboard/certificates/add', [App\Http\Controllers\CertificatesController::class, 'certificates_add'])->name('certificates_dashboard_add');
+    Route::get('/dashboard/certificates/{certificates}', [App\Http\Controllers\CertificatesController::class, 'certificates_edit'])->name('certificates_dashboard_edit');
+    Route::patch('/dashboard/certificates/{certificates}', [App\Http\Controllers\CertificatesController::class, 'certificates_update'])->name('certificates_dashboard_update');
+    Route::get('/dashboard/certificates/{certificates}/delete', [App\Http\Controllers\CertificatesController::class, 'certificates_delete'])->name('certificates_dashboard_delete');
+    Route::delete('/dashboard/certificates/{certificates}', [App\Http\Controllers\CertificatesController::class, 'certificates_destroy'])->name('certificates_destroy');
+
 });
 
 

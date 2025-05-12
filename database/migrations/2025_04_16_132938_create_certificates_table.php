@@ -14,6 +14,13 @@ return new class extends Migration
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('url');
+            $table->string('title')->nullable();
+
+            $table->unsignedBigInteger('sort')->default(500);
+            $table->unsignedBigInteger('size')->nullable();
+            $table->string('original_name')->nullable();
+            $table->string('type')->nullable();
         });
     }
 
