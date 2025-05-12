@@ -1,9 +1,9 @@
 @extends('dashboard.dashboard')
-@section('title',' Удаление файла')
+@section('title',' Удаление сертификата')
 @php
-    $title= "Удалить файл".$media->title;
-    $id = ['media'=>$media->id];
-    $route = 'media_destroy';
+    $title= "Удалить сертификат ".$certificates->title;
+    $id = ['certificates'=>$certificates->id];
+    $route = 'certificates_destroy';
     $errors_form=[];
 @endphp
 @section('main')

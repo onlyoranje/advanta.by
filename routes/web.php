@@ -89,6 +89,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/certificates/{certificates}/delete', [App\Http\Controllers\CertificatesController::class, 'certificates_delete'])->name('certificates_dashboard_delete');
     Route::delete('/dashboard/certificates/{certificates}', [App\Http\Controllers\CertificatesController::class, 'certificates_destroy'])->name('certificates_destroy');
 
+    Route::get('/dashboard/contacts', [App\Http\Controllers\ContactsController::class, 'contacts_edit'])->name('contacts_dashboard_edit');
+    Route::patch('/dashboard/contacts', [App\Http\Controllers\ContactsController::class, 'contacts_update'])->name('contacts_dashboard_update');
 });
 
 

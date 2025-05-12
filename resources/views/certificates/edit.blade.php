@@ -19,7 +19,7 @@
                                 <a href="{{route('dashboard')}}">Dashboard</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{route('certificates_dashboard')}}">Фото и видео</a>
+                                <a href="{{route('certificates_dashboard')}}">Сертификаты</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Редактирование {{$certificates->title}}
@@ -40,45 +40,31 @@
             <div class="col-lg-6">
                 <div class="card-style mb-30">
 
-                    <form class="default-form-style" action="{{route('media_dashboard_update',$media->id)}}" method="post"  enctype="multipart/form-data">
+                    <form class="default-form-style" action="{{route('certificates_dashboard_update',$certificates->id)}}" method="post"  enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="input-style-1">
                             <label>Заголовок</label>
-                            <input type="text" value="{{old('title',$media->title)}}"  name="title"  required>
+                            <input type="text" value="{{old('title',$certificates->title)}}"  name="title"  required>
                         </div>
 
 
                         <div class="input-style-1">
                             <label>Сортировка</label>
-                            <input type="number" value="{{old('sort',$media->sort)}}" name="sort"   required>
+                            <input type="number" value="{{old('sort',$certificates->sort)}}" name="sort"   required>
                         </div>
 
 
                         <!-- end select -->
                         <div class="col-6">
-                            @if (strstr($media->type, '/', true)=='image')
-                                <img src="{{Storage::url('media/'.$media->url)}}" class="img-thumbnail"  alt="">
-                            @endif
-                            @if (strstr($media->type, '/', true)=='video')
 
-                                    <video width="320" height="240" controls>
-                                        <source src="{{Storage::url('media/'.$media->url)}}" type="{{$media->type}}">
+                                <img src="{{Storage::url('certificates/'.$certificates->url)}}" class="img-thumbnail"  alt="">
 
-                                        Your browser does not support the video tag.
-                                    </video>
-
-                                @endif
 
                         </div>
-                        <div class="col-12 mt-20">
-                            <input type="file" name="media1" >
-                        </div>
 
-
-                        <div class="input-style-1">
-                            <label>текст</label>
-                            <textarea rows="5"name="text">{{old('text',$media->content)}}</textarea>
+                        <div class="input-style-1 mt-20">
+                            <input type="file" name="certificates1" >
                         </div>
 
                         <div class="col-12">
