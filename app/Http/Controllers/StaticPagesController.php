@@ -28,24 +28,18 @@ class StaticPagesController extends Controller
     }
     public function pages_add_db(Request $request){
 
+        $url =
+        $pages = StaticPages::create(['title'=>$request->title,'content'=>$request->text,'sort'=>$request->sort,'active'=>$request->active, 'url'=>$url ]);
 
-        $pages = StaticPages::create(['title'=>$request->title,'preview_text'=>$request->preview_text,'content'=>$request->text,'user_id'=>Auth::id(),'tags'=>$trim_tag]);
-        if ($request->new_category){
-            $pages->fill(['category'=> $request->new_category]);
-            $pages->save();
-        } else {
-            $post->fill(['category'=> $request->category]);
-            $post->save();
-        }
-        if ($request->file) {
+        if ($request->img) {
 
-            $filename = $request->file[0]->store('media');
+            $filename = $request->img[0]->store('media');
             $file_name = explode('/', $filename);
-            $post->fill(['image'=> $file_name[1]]);
-            $post->save();
+            $pages->fill(['image'=> $file_name[1]]);
+            $pages->save();
 
         }
-        return redirect()->route('posts_dashboard');
+        return redirect()->route('pages_dashboard');
 
     }
     public function post_dashboard(StaticPages $post){

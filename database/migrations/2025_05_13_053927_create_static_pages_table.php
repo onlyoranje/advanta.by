@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('active')->default('Y');
             $table->string('title');
-            $table->string('url');
+            $table->string('url')->unique();
             $table->unsignedBigInteger('sort')->default(500);
-            $table->string('original_name')->nullable();
+            $table->string('image')->nullable();
             $table->text('content');
             $table->timestamps();
         });

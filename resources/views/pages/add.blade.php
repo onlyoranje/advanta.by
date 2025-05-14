@@ -19,10 +19,10 @@
                                 <a href="{{route('dashboard')}}">Dashboard</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="{{route('posts_dashboard')}}">Новости</a>
+                                <a href="{{route('pages_dashboard')}}">О компании</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Добавить новость
+                                Добавить страницу
                             </li>
                         </ol>
                     </nav>
@@ -44,9 +44,12 @@
                         @csrf
                         <div class="input-style-1">
                             <label>Заголовок</label>
-                            <input type="text" value="{{old('title')}}"  name="title"  required>
+                            <input type="text" value="{{old('title')}}"  name="title"  id="title" required>
                         </div>
-
+                        <div class="input-style-1">
+                            <label>URL</label>
+                            <input type="text" value="{{old('url')}}"  name="url" id="url" required>
+                        </div>
                         <div class="input-style-1">
                             <label>Сортировка</label>
                             <input type="number" value="{{old('sort',500)}}" name="sort"   required>
@@ -93,7 +96,51 @@
                     console.error( error );
                 } );
 
+            $('#title').on("input", function() {
+                var url = $('#url').val();
+                var converter = {
+                    'а': 'a',    'б': 'b',    'в': 'v',    'г': 'g',    'д': 'd',
+                    'е': 'e',    'ё': 'e',    'ж': 'zh',   'з': 'z',    'и': 'i',
+                    'й': 'y',    'к': 'k',    'л': 'l',    'м': 'm',    'н': 'n',
+                    'о': 'o',    'п': 'p',    'р': 'r',    'с': 's',    'т': 't',
+                    'у': 'u',    'ф': 'f',    'х': 'h',    'ц': 'c',    'ч': 'ch',
+                    'ш': 'sh',   'щ': 'sch',  'ь': '',     'ы': 'y',    'ъ': '',
+                    'э': 'e',    'ю': 'yu',   'я': 'ya',
 
+                    'А': 'A',    'Б': 'B',    'В': 'V',    'Г': 'G',    'Д': 'D',
+                    'Е': 'E',    'Ё': 'E',    'Ж': 'Zh',   'З': 'Z',    'И': 'I',
+                    'Й': 'Y',    'К': 'K',    'Л': 'L',    'М': 'M',    'Н': 'N',
+                    'О': 'O',    'П': 'P',    'Р': 'R',    'С': 'S',    'Т': 'T',
+                    'У': 'U',    'Ф': 'F',    'Х': 'H',    'Ц': 'C',    'Ч': 'Ch',
+                    'Ш': 'Sh',   'Щ': 'Sch',  'Ь': '',     'Ы': 'Y',    'Ъ': '',
+                    'Э': 'E',    'Ю': 'Yu',   'Я': 'Ya'
+                };
+
+              /*var  word = $(this).val().toLowerCase();
+                console.log($(this).val())
+                console.log(converter[word])
+                word = converter[word];*/
+
+                word = $(this).val().toLowerCase();
+
+                var answer = '';
+                for (var i = 0; i < word.length; ++i ) {
+                    if (converter[word[i]] == undefined){
+                        answer += word[i];
+                    } else {
+                        answer += converter[word[i]];
+                    }
+                }
+
+                answer = answer.replace(/[^-0-9a-z]/g, '-');
+                answer = answer.replace(/[-]+/g, '-');
+                answer = answer.replace(/^\-|-$/g, '');
+
+
+                $('#url').val(answer);
+
+
+            });
         } );
     </script>
 @endsection
