@@ -67,7 +67,7 @@
 
 
                         </div>
-                        <div class="input-style-1">
+                        <div class="input-style-1 mt-20">
                             <input type="file" name="img" >
                         </div>
 

@@ -95,8 +95,8 @@
                                     <td>
                                         <div class="action">
                                             <button class="text-danger">
-                                                <a href='{{route('pages_edit', ['page' => $page->id])}}'><i class="lni lni-pencil"></i></a>
-                                                <a href='{{route('pages_delete', ['page' => $page->id])}}'><i class="lni lni-trash"></i></a>
+                                                <a href='{{route('pages_edit', ['pages' => $page->id])}}'><i class="lni lni-pencil"></i></a>
+                                                <a href='{{route('pages_delete', ['pages' => $page->id])}}'><i class="lni lni-trash"></i></a>
                                             </button>
                                         </div>
                                     </td>

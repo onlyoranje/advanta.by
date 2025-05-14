@@ -68,7 +68,7 @@ class StaticPagesController extends Controller
 
         $active = 'N';
         if ($request->active=='Y') $active = 'Y';
-        $pages->create(['title'=>$request->title,'content'=>$request->text,'sort'=>$request->sort,'active'=>$active, 'url'=>$request->url ]);
+        $pages->fill(['title'=>$request->title,'content'=>$request->text,'sort'=>$request->sort,'active'=>$active, 'url'=>$request->url ]);
         $pages->save();
 
         if ($request->img) {
