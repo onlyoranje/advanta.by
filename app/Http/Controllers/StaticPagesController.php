@@ -27,13 +27,13 @@ class StaticPagesController extends Controller
         return view('pages.add',['title'=>'Новости']);
     }
     public function pages_add_db(Request $request){
-
-        $url =
-        $pages = StaticPages::create(['title'=>$request->title,'content'=>$request->text,'sort'=>$request->sort,'active'=>$request->active, 'url'=>$url ]);
+        $active = 'N';
+        if ($request->active=='Y') $active = 'Y';
+        $pages = StaticPages::create(['title'=>$request->title,'content'=>$request->text,'sort'=>$request->sort,'active'=>$active, 'url'=>$request->url ]);
 
         if ($request->img) {
 
-            $filename = $request->img[0]->store('media');
+            $filename = $request->img->store('media');
             $file_name = explode('/', $filename);
             $pages->fill(['image'=> $file_name[1]]);
             $pages->save();
@@ -42,12 +42,12 @@ class StaticPagesController extends Controller
         return redirect()->route('pages_dashboard');
 
     }
-    public function post_dashboard(StaticPages $post){
-        $categories = StaticPages::whereNotNull('category')->groupBy('category')->pluck('category');
-        $title = 'Редактирование новости '.$post->title;
-        return view('post.edit',['title'=>$title,'post'=>$post,'categories'=>$categories]);
+    public function pages_edit(StaticPages $pages){
+
+        $title = 'Редактирование страницы '.$pages->title;
+        return view('pages.edit',['title'=>$title,'page'=>$pages]);
     }
-    public function post(StaticPages $post){
+    public function post(StaticPages $pages){
         $title = $post->title;
         /* //$stat = PostStatistic::updateOrCreate(['post_id'=>$post->id,'user_token'=> Session::getId()]);
          if ($stat->updated_at < date('Y-m-d H:i:s',strtotime('-1 day')) and $stat->user_token==Session::getId())
@@ -64,37 +64,28 @@ class StaticPagesController extends Controller
         $breadcrumbs['list'][] = Array('route'=>'posts','title'=>$post->category,'param'=>'?category='.$post->category);
         return view('post.detail',['title'=>$title,'post'=>$post,'breadcrumbs'=>$breadcrumbs]);
     }
-    public function edit_post(StaticPages $post,Request $request){
-        $trim_tag=Array();
-        $tags = explode(',',$request->tags);
-        foreach ($tags as $tag){
-            $trim_tag[]=trim($tag);
-        }
-        $trim_tag = implode(',',$trim_tag);
-        $post->fill(['title'=>$request->title,'preview_text'=>$request->preview_text,'content'=>$request->text,'tags'=>$trim_tag]);
-        $post->save();
-        if ($request->new_category){
-            $post->fill(['category'=> $request->new_category]);
-            $post->save();
-        } else {
-            $post->fill(['category'=> $request->category]);
-            $post->save();
-        }
-        if ($request->file) {
+    public function pages_update(StaticPages $pages,Request $request){
 
-            $filename = $request->file->store('media');
+        $active = 'N';
+        if ($request->active=='Y') $active = 'Y';
+        $pages->create(['title'=>$request->title,'content'=>$request->text,'sort'=>$request->sort,'active'=>$active, 'url'=>$request->url ]);
+        $pages->save();
+
+        if ($request->img) {
+
+            $filename = $request->img->store('media');
             $file_name = explode('/', $filename);
-            $post->fill(['image'=> $file_name[1]]);
-            $post->save();
+            $pages->fill(['image'=> $file_name[1]]);
+            $pages->save();
 
         }
-        return redirect()->route('posts_dashboard');
+        return redirect()->route('pages_dashboard');
     }
-    public function delete_post(StaticPages $post){
+    public function pages_delete(StaticPages $pages){
         $title = "Удалить новость ".$post->title;
         return view('post.delete',['title'=>$title,'post'=>$post]);
     }
-    public function destroy_post(StaticPages $post){
+    public function pages_destroy(StaticPages $pages){
         $post->delete();
         return redirect()->route('posts_dashboard');
     }

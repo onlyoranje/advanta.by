@@ -1,12 +1,12 @@
 @extends('dashboard.dashboard')
-@section('title', 'Главная')
+@section('title', $title)
 
 @section('main')
     <div class="title-wrapper pt-30">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="title d-flex align-items-center flex-wrap">
-                    <h2 class="mr-40">Новая страница </h2>
+                    <h2 class="mr-40">Редактирование страницы "{{$page->title}}" </h2>
 
                 </div>
             </div>
@@ -22,7 +22,7 @@
                                 <a href="{{route('pages_dashboard')}}">О компании</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Добавить страницу
+                                Редактирование страницы "{{$page->title}}"
                             </li>
                         </ol>
                     </nav>
@@ -40,35 +40,41 @@
             <div class="col-lg-6">
                 <div class="card-style mb-30">
 
-                    <form class="default-form-style" action="{{route('pages_dashboard_add_db')}}" method="post"  enctype="multipart/form-data">
+                    <form class="default-form-style" action="{{route('pages_update',$page->id)}}" method="post"  enctype="multipart/form-data">
                         @csrf
+                        @method('PATCH')
                         <div class="input-style-1">
                             <label>Заголовок</label>
-                            <input type="text" value="{{old('title')}}"  name="title"  id="title" required>
+                            <input type="text" value="{{old('title', $page->title)}}"  name="title"  id="title" required>
                         </div>
                         <div class="input-style-1">
                             <label>URL</label>
-                            <input type="text" value="{{old('url')}}"  name="url" id="url" required>
+                            <input type="text" value="{{old('url',$page->url)}}"  name="url" id="url" required>
                         </div>
                         <div class="form-check checkbox-style mb-20">
-                            <input class="form-check-input" name="active" type="checkbox" value="Y" id="checkbox-1">
+                            <input class="form-check-input" name="active" type="checkbox" value="Y" id="checkbox-1" {{$page->active=='Y'? "checked":""}}>
                             <label class="form-check-label" for="checkbox-1">
                                 Активно</label>
                         </div>
                         <div class="input-style-1">
                             <label>Сортировка</label>
-                            <input type="number" value="{{old('sort',500)}}" name="sort"   required>
+                            <input type="number" value="{{old('sort',$page->sort)}}" name="sort"   required>
                         </div>
                         <!-- end select -->
+                        <div class="col-6">
 
-                        <div class="col-12">
+                            <img src="{{Storage::url('media/'.$page->image)}}" class="img-thumbnail"  alt="">
+
+
+                        </div>
+                        <div class="input-style-1">
                             <input type="file" name="img" >
                         </div>
 
 
                         <div class="input-style-1">
                             <label>текст</label>
-                            <textarea rows="5" id="editor" name="text">{{old('text')}}</textarea>
+                            <textarea rows="5" id="editor" name="text">{{old('text',$page->content)}}</textarea>
                         </div>
 
                         <div class="col-12">

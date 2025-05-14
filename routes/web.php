@@ -97,10 +97,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/pages/', [App\Http\Controllers\StaticPagesController::class, 'pages_dashboard'])->name('pages_dashboard');
     Route::get('/dashboard/pages/add', [App\Http\Controllers\StaticPagesController::class, 'pages_add'])->name('pages_dashboard_add');
     Route::post('/dashboard/pages', [App\Http\Controllers\StaticPagesController::class, 'pages_add_db'])->name('pages_dashboard_add_db');
-    Route::get('/dashboard/pages/{page}', [App\Http\Controllers\StaticPagesController::class, 'pages_edit'])->name('pages_edit');
-    Route::patch('/dashboard/pages/{page}', [App\Http\Controllers\StaticPagesController::class, 'pages_update'])->name('pages_update');
-    Route::get('/dashboard/pages/{page}/delete', [App\Http\Controllers\StaticPagesController::class, 'pages_delete'])->name('pages_delete');
-    Route::delete('/dashboard/pages/{page}', [App\Http\Controllers\StaticPagesController::class, 'pages_destroy'])->name('pages_destroy');
+    Route::get('/dashboard/pages/{pages}', [App\Http\Controllers\StaticPagesController::class, 'pages_edit'])->name('pages_edit');
+    Route::patch('/dashboard/pages/{pages}', [App\Http\Controllers\StaticPagesController::class, 'pages_update'])->name('pages_update');
+    Route::get('/dashboard/pages/{pages}/delete', [App\Http\Controllers\StaticPagesController::class, 'pages_delete'])->name('pages_delete');
+    Route::delete('/dashboard/pages/{pages}', [App\Http\Controllers\StaticPagesController::class, 'pages_destroy'])->name('pages_destroy');
 
 
 });
