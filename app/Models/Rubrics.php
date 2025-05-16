@@ -9,4 +9,7 @@ class Rubrics extends Model
     use HasFactory;
     use NodeTrait;
     protected $fillable=['title','title_r','parent_id','description', 'level','sort','icon'];
+    public function products() {
+        return $this->hasMany(Products::class);
+    }
 }

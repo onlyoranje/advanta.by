@@ -84,7 +84,7 @@
                                 <p>{{$product->title}}</p>
                             </td>
                             <td class="min-width">
-                                <p><a href="#0">{{$product->rubric->title}}</a></p>
+                                <p><a href="#0">{{$product->rubrics->title}}</a></p>
                             </td>
                             <td class="min-width">
                                 <p>(405) 555-0128</p>

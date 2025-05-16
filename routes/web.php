@@ -15,8 +15,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/dashboard', [ProfileController::class, 'update'])->name('profile.update');
 
 
-    Route::get('/rubric', [App\Http\Controllers\RubricsController::class, 'rubric'])->name('rubrics');
-    Route::get('/rubric/{rubric}', [App\Http\Controllers\RubricsController::class, 'rubric'])->name('rubric');
+
     Route::get('/dashboard/rubric', [App\Http\Controllers\RubricsController::class, 'rubrics'])->name('rubric_dashboard');
     Route::post('/dashboard/rubric', [App\Http\Controllers\RubricsController::class, 'addRubric'])->name('addRubricToDB');
     Route::get('/dashboard/rubric/add', [App\Http\Controllers\RubricsController::class, 'addRubricForm'])->name('rubric_dashboard_add');
@@ -106,13 +105,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 
+
 Route::get('/posts/', [App\Http\Controllers\PostsController::class, 'posts'])->name('posts');
 Route::get('/post/{post}', [App\Http\Controllers\PostsController::class, 'post'])->name('post');
 
+Route::get('/rubric', [App\Http\Controllers\RubricsController::class, 'rubric'])->name('rubrics');
+Route::get('/rubric/{rubric}', [App\Http\Controllers\RubricsController::class, 'rubric'])->name('rubric');
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [ProfileController::class, 'home'])->name('home');
 
 Route::get('/test', function () {
     return view('test');

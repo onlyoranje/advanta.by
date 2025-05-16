@@ -62,7 +62,7 @@
                                     $traverse = function ($rubrics,$product, $prefix = '-') use (&$traverse) {
                                         foreach ($rubrics as $rubric) {
                                             echo "<option value=".$rubric->id." ";
-                                            if ($rubric->id == $product->rubric->id) echo "selected";
+                                            if ($rubric->id == $product->rubrics->id) echo "selected";
                                             echo ">". PHP_EOL.$prefix.' '.$rubric->title."</option>";
 
                                             $traverse($rubric->children,$product, $prefix.'-');

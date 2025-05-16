@@ -82,11 +82,11 @@ class StaticPagesController extends Controller
         return redirect()->route('pages_dashboard');
     }
     public function pages_delete(StaticPages $pages){
-        $title = "Удалить новость ".$post->title;
-        return view('post.delete',['title'=>$title,'post'=>$post]);
+        $title = "Удалить страницу ".$pages->title;
+        return view('pages.delete',['title'=>$title,'page'=>$pages]);
     }
     public function pages_destroy(StaticPages $pages){
-        $post->delete();
-        return redirect()->route('posts_dashboard');
+        $pages->delete();
+        return redirect()->route('pages_dashboard');
     }
 }

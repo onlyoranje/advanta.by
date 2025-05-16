@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
-    protected $fillable = ['title', 'content', 'rubric_id','sort'];
-    public function rubric() {
+    protected $fillable = ['title', 'content', 'rubrics_id','sort'];
+    public function rubrics() {
         return $this->belongsTo(Rubrics::class);
     }
     public function product_photo() {

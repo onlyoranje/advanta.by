@@ -43,11 +43,11 @@ class ProductsController extends Controller
      return view('products.add',$context);
  }
     public function addProductToDB(Request $request){
-        //dd($request->file());
+
         $validated = $request->validate(self::PRODUCT_VALIDATOR,self::PRODUCT_ERROR_MESSAGES);
         $description = $request->content;
 $sort = 0;
-        $product = Products::create(['title'=>$validated['title'],'content'=>$description,'rubric_id'=>$validated['rubric_id']]);
+        $product = Products::create(['title'=>$validated['title'],'content'=>$description,'rubrics_id'=>$validated['rubric_id']]);
 
 
         if ($request->file) {
@@ -99,7 +99,7 @@ $sort = 0;
         $product->fill(['title'=>$validated['title'],'content'=>$description]);
         $product->save();
         if ($request->rubric_id) {
-            $product->fill(['rubric_id'=>$request->rubric_id]);
+            $product->fill(['rubrics_id'=>$request->rubric_id]);
             $product->save();
         }
         if ($request->file) {

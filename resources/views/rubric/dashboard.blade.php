@@ -66,7 +66,8 @@
                             <p>{!! $prefix !!} {{$rubric->title}}</p>
                         </td>
                         <td>
-                            <p>###</p>
+
+                            <p>{{(count($rubric->products)>0) ? count($rubric->products):"0"}}</p>
                         </td>
                         <td>
                             <div class="action">

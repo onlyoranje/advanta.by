@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title', 255);
-            $table->foreignId('rubric_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('rubrics_id')->constrained()->cascadeOnDelete();
             $table->unsignedBigInteger('sort')->default(500);
             $table->text('content')->nullable();
             $table->timestamps();

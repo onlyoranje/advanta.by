@@ -29,11 +29,22 @@
                                         Продукция
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
-                                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
-                                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
-                                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
-                                        <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
+                                        @if (count($rubrics)>0)
+                                                <?
+                                                $traverse = function ($rubrics, $prefix = '-') use (&$traverse) {
+                                                    foreach ($rubrics as $rubric) {
+                                                        echo '<li><a  class=dropdown-item';
+                                                        echo "  href='".route('rubric',$rubric->id)."'";
+                                                        echo ">". PHP_EOL.$prefix.' '.$rubric->title."</a></li>";
+
+                                                        $traverse($rubric->children, $prefix.'-');
+                                                    }
+                                                };
+
+                                                $traverse($rubrics);
+                                                ?>
+                                        @endif
+
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">

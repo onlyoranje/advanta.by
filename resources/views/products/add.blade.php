@@ -70,8 +70,6 @@
                                     $traverse($rubrics);
                                     ?>
 
-
-
                                 </select>
                             </div>
                         </div>
