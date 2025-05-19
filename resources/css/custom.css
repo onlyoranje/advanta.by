@@ -1528,3 +1528,11 @@ blockquote span {
 /*======================================
 	End Contact CSS
 ========================================*/
+.header .navbar-nav .dropdown-menu li a {
+
+    text-transform: none;
+
+}
+.header .navbar-nav .dropdown-menu {
+    width: auto;
+}

@@ -29,10 +29,11 @@
                                         Продукция
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        @if (count($rubrics)>0)
+                                        @php($rubrics_menu = \App\Models\Rubrics::all())
+                                        @if (count($rubrics_menu)>0)
                                                 <?
-                                                $traverse = function ($rubrics, $prefix = '-') use (&$traverse) {
-                                                    foreach ($rubrics as $rubric) {
+                                                $traverse = function ($rubrics_menu, $prefix = '-') use (&$traverse) {
+                                                    foreach ($rubrics_menu as $rubric) {
                                                         echo '<li><a  class=dropdown-item';
                                                         echo "  href='".route('rubric',$rubric->id)."'";
                                                         echo ">". PHP_EOL.$prefix.' '.$rubric->title."</a></li>";
@@ -41,7 +42,7 @@
                                                     }
                                                 };
 
-                                                $traverse($rubrics);
+                                                $traverse($rubrics_menu);
                                                 ?>
                                         @endif
 

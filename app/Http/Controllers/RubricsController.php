@@ -59,4 +59,11 @@ class RubricsController extends Controller
         $rubric->delete();
         return redirect()->route('rubric_dashboard');
     }
+
+    public function rubric(Rubrics $rubric)
+    {
+        $breadcrumbs['route']= 'rubric';
+        $breadcrumbs['list']= Rubrics::ancestorsAndSelf($rubric->id);
+        return view('rubric.rubric', ['rubric'=>$rubric,'title'=>$rubric->title,'breadcrumbs'=>$breadcrumbs]);
+    }
 }
