@@ -55,7 +55,7 @@
                         <div class="select-style-1">
                             <label>Категория</label>
                             <div class="select-position">
-                                <select name="rubric_id"  class="user-chosen-select">
+                                <select name="rubrics_id"  class="user-chosen-select">
                                     <option value="">Категория</option>
                                     <?
                                     $traverse = function ($rubrics, $prefix = '-') use (&$traverse) {
@@ -174,7 +174,7 @@
                 }
             });
 
-            $("select[name='rubric_id']").change(function () {
+            $("select[name='rubrics_id']").change(function () {
                 Parameter_Rubric($(this).val())
 
             })

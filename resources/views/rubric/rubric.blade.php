@@ -25,14 +25,22 @@
                                 <img src="{{Storage::url($main_photo->resize(360, 360))}}" alt="{{$product->title}}">
                             @endif
                             <!-- Social -->
+                            <ul class="social">
+                                @if (count($product->parameters)>0)
+                                    @foreach($product->parameters as $parameter)
+                                        <li>{{$parameter->parameters->name}}: {{$parameter->value}}</li>
 
+                                    @endforeach
+                                @endif
+
+                            </ul>
                             <!-- End Social -->
                         </div>
                         <!-- End Image -->
                         <div class="info-head">
                             <!-- Info Box -->
                             <div class="info-box">
-                                <h4 class="name"><a href="team-single.html">{{$product->title}}</a></h4>
+                                <h4 class="name"><a href="{{route('product',$product->id)}}">{{$product->title}}</a></h4>
                                 <span class="designation">{{$product->rubrics->title}}</span>
                             </div>
                             <!-- End Info Box -->

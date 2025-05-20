@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Storage;
 class ProductsController extends Controller
 {
     private const PRODUCT_VALIDATOR = [
-        'title' => 'required|max:50',
+        'title' => 'required|max:250',
 
-        'rubric_id' => 'required',
+        'rubrics_id' => 'required',
 
     ];
 
@@ -43,11 +43,11 @@ class ProductsController extends Controller
      return view('products.add',$context);
  }
     public function addProductToDB(Request $request){
-
+//dd($request);
         $validated = $request->validate(self::PRODUCT_VALIDATOR,self::PRODUCT_ERROR_MESSAGES);
         $description = $request->content;
 $sort = 0;
-        $product = Products::create(['title'=>$validated['title'],'content'=>$description,'rubrics_id'=>$validated['rubric_id']]);
+        $product = Products::create(['title'=>$validated['title'],'content'=>$description,'rubrics_id'=>$validated['rubrics_id']]);
 
 
         if ($request->file) {
@@ -182,5 +182,11 @@ $sort = 0;
         $product->parameters()->delete();
         $product->delete();
         return redirect()->route('product_dashboard');
+    }
+
+    public function product(Products $product){
+        $breadcrumbs['route']= 'rubric';
+        $breadcrumbs['list']= Rubrics::ancestorsAndSelf($product->rubrics->id);
+        return view('products.product', ['product'=>$product, 'title' => $product->title, 'description' => $product->content,'breadcrumbs'=>$breadcrumbs]);
     }
 }

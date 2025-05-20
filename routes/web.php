@@ -111,6 +111,7 @@ Route::get('/post/{post}', [App\Http\Controllers\PostsController::class, 'post']
 
 Route::get('/rubric', [App\Http\Controllers\RubricsController::class, 'rubric'])->name('rubrics');
 Route::get('/rubric/{rubric}', [App\Http\Controllers\RubricsController::class, 'rubric'])->name('rubric');
+Route::get('/product/{product}', [App\Http\Controllers\ProductsController::class, 'product'])->name('product');
 
 Route::get('/', [ProfileController::class, 'home'])->name('home');
 

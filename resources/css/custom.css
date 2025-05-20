@@ -1543,3 +1543,8 @@ blockquote span {
 .team .single-team .info-box {
     text-align: center;
 }
+.single-team .image .social li {
+    display: block;
+    color: white;
+    text-align: left;
+}

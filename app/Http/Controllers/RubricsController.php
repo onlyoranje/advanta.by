@@ -66,6 +66,7 @@ class RubricsController extends Controller
         $breadcrumbs['route']= 'rubric';
         $breadcrumbs['list']= Rubrics::ancestorsOf($rubric->id);
         $children_rubric = $rubric->descendants()->pluck('id');
+        $children_rubric[] = $rubric->id;
         $products = Products::whereIn('rubrics_id', $children_rubric)->orderBy('sort')->get();
         return view('rubric.rubric', ['rubric'=>$rubric,'title'=>$rubric->title,'breadcrumbs'=>$breadcrumbs,'description'=>$rubric->description, 'products'=>$products]);
     }
