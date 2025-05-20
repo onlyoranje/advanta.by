@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Products;
 use App\Models\Rubrics;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -63,7 +64,9 @@ class RubricsController extends Controller
     public function rubric(Rubrics $rubric)
     {
         $breadcrumbs['route']= 'rubric';
-        $breadcrumbs['list']= Rubrics::ancestorsAndSelf($rubric->id);
-        return view('rubric.rubric', ['rubric'=>$rubric,'title'=>$rubric->title,'breadcrumbs'=>$breadcrumbs]);
+        $breadcrumbs['list']= Rubrics::ancestorsOf($rubric->id);
+        $children_rubric = $rubric->descendants()->pluck('id');
+        $products = Products::whereIn('rubrics_id', $children_rubric)->orderBy('sort')->get();
+        return view('rubric.rubric', ['rubric'=>$rubric,'title'=>$rubric->title,'breadcrumbs'=>$breadcrumbs,'description'=>$rubric->description, 'products'=>$products]);
     }
 }

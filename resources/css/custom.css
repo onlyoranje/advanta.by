@@ -1536,3 +1536,10 @@ blockquote span {
 .header .navbar-nav .dropdown-menu {
     width: auto;
 }
+.team .single-team .info-box .name {
+
+    text-transform: none;
+}
+.team .single-team .info-box {
+    text-align: center;
+}
