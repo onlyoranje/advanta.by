@@ -29,7 +29,7 @@
                                         Продукция
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        @php($rubrics_menu = \App\Models\Rubrics::all())
+                                        @php($rubrics_menu = \App\Models\Rubrics::orderBy('sort')->orderBy('title')->get()->toTree())
                                         @if (count($rubrics_menu)>0)
                                                 <?
                                                 $traverse = function ($rubrics_menu, $prefix = '-') use (&$traverse) {
