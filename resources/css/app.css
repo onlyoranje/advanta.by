@@ -1,6 +1,6 @@
 /*@import 'tailwindcss';
 @plugin 'tailwindcss-animate';*/
-@import "./bootstrap.min";
+@import "./bootstrap.min.css";
 @import "./LineIcons.2.0";
 @import "./animate";
 @import "./tiny-slider";
