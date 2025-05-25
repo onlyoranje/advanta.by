@@ -18,7 +18,22 @@
                                     <a class="nav-link active" href="/">Главная</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#">О нас</a>
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                        О нас
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        @php($about_menu = \App\Models\StaticPages::orderBy('sort')->orderBy('title')->get())
+                                        @if (count($about_menu)>0)
+                                             @foreach ($about_menu as $about)
+                                            <li><a  class=dropdown-item' href='{{route('static_page',$about->url)}}'> {{$about->title}}</a></li>
+
+
+
+                                            @endforeach
+                                        @endif
+
+                                    </ul>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="#">Фото и видео</a>

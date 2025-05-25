@@ -83,5 +83,5 @@
     </div>
 
 
-    @include("blocks.footer")
+@include("blocks.footer")
 @endsection('main')

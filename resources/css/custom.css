@@ -1820,3 +1820,10 @@ blockquote span {
     padding-top: 150px;
 
 }
+.breadcrumbs-page:before {
+    opacity:0.5!important;
+}
+.breadcrumbs-page{
+    padding: 180px 0;
+    padding-top: 260px;
+}
