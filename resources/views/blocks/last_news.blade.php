@@ -12,63 +12,28 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single News -->
-                <div class="single-news custom-shadow-hover wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                    <div class="image">
-                        <img class="thumb" src="assets/images/blog/blog-grid1.jpg" alt="#">
-                    </div>
-                    <div class="content-body">
-                        <a class="cat" href="#">Career</a>
-                        <h4 class="title"><a href="blog-single-sidebar.html">How to win any job you want. Get
-                                started with 5 steps.</a></h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                            has been the industry's.</p>
-                        <div class="button">
-                            <a href="blog-single-sidebar.html" class="btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single News -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single News -->
-                <div class="single-news custom-shadow-hover wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-                    <div class="image">
-                        <img class="thumb" src="assets/images/blog/blog-grid2.jpg" alt="#">
-                    </div>
-                    <div class="content-body">
-                        <a class="cat" href="#">Lifestyle</a>
-                        <h4 class="title"><a href="blog-single-sidebar.html">10 ways to readuce your office work
-                                depression.</a></h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                            has been the industry's.</p>
-                        <div class="button">
-                            <a href="blog-single-sidebar.html" class="btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single News -->
-            </div>
+
+            @if (count($posts)>0)
+                @foreach ($posts as $post)
             <div class="col-lg-4 col-md-6 col-12">
                 <!-- Single News -->
                 <div class="single-news custom-shadow-hover wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
                     <div class="image">
-                        <img class="thumb" src="assets/images/blog/blog-grid3.jpg" alt="#">
+                        <img class="thumb" src="{{Storage::url($post->resizeImage($post->image,null,277))}}" alt="#">
                     </div>
                     <div class="content-body">
-                        <a class="cat" href="#">Career</a>
-                        <h4 class="title"><a href="blog-single-sidebar.html">Why should you work as a team even on
-                                small projects.</a></h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                            has been the industry's.</p>
+                        <a class="cat" href="{{route('post',$post->id)}}">{{$post->category}}</a>
+                        <h4 class="title"><a href="blog-single-sidebar.html">{{$post->title}}</a></h4>
+                        <p>{{$post->preview_text}}</p>
                         <div class="button">
-                            <a href="blog-single-sidebar.html" class="btn">Read More</a>
+                            <a href="{{route('post',$post->id)}}" class="btn">Читать</a>
                         </div>
                     </div>
                 </div>
                 <!-- End Single News -->
             </div>
+                @endforeach
+            @endif
         </div>
     </div>
 </div>

@@ -87,7 +87,10 @@
                             <label>Банковские реквизиты</label>
                             <textarea rows="2"  name="bank">{{old('bank',$contacts->bank)}}</textarea>
                         </div>
-
+                        <div class="input-style-1">
+                            <label>Код CRM-формы</label>
+                            <textarea rows="2"  name="crm_form">{{old('crm_form',$contacts->crm_form)}}</textarea>
+                        </div>
                         <div class="col-12">
                             <button type="submit" class="main-btn primary-btn btn-hover">
                                 Сохранить

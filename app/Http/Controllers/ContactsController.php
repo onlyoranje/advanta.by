@@ -44,4 +44,9 @@ class ContactsController extends Controller
         }*/
         return redirect()->route('contacts_dashboard_edit');
     }
+    public function detail(){
+        $contacts = Contacts::first();
+        $phones = unserialize($contacts->phones);
+        return view('contacts',['contact'=>$contacts,'phones'=>$phones]);
+    }
 }
