@@ -45,6 +45,16 @@
                             <label>Наименование организации</label>
                             <input type='text' name="company_name" value="{{old('company_name',$contacts->company_name)}}"   required>
                         </div>
+                        <label>Лого</label>
+                        <div class="col-6">
+
+                            <img src="{{Storage::url('media/'.$contacts->logo)}}" class="img-thumbnail"  alt="">
+
+
+                        </div>
+                        <div class="input-style-1 mt-20">
+                            <input type="file" name="logo" >
+                        </div>
 
                         <div class="input-style-1">
                             <label>УНП</label>
@@ -91,7 +101,57 @@
                             <label>Код CRM-формы</label>
                             <textarea rows="2"  name="crm_form">{{old('crm_form',$contacts->crm_form)}}</textarea>
                         </div>
-                        <div class="col-12">
+                        <hr>
+                        <h3>Баннер на главной</h3>
+                        <label>Изображение</label>
+                        <div class="col-6">
+
+                            <img src="{{Storage::url('media/'.$contacts->logo)}}" class="img-thumbnail"  alt="">
+
+
+                        </div>
+                        <div class="input-style-1 mt-20">
+                            <input type="file" name="img" >
+                        </div>
+                        <div class="input-style-1">
+                            <label>Заголовок</label>
+                            <input type='text' name="banner_title" value="{{old('banner_title',$contacts->banner_title)}}">
+                        </div>
+
+                        <div class="input-style-1">
+                            <label>Баннер описание</label>
+                            <textarea rows="2"  name="banner_desc">{{old('banner_desc',$contacts->banner_desc)}}</textarea>
+                        </div>
+                        <div class="input-style-1">
+                            <label>Ссылка</label>
+                            <input type='text' name="banner_url" value="{{old('banner_url',$contacts->banner_url)}}">
+                        </div>
+                        <div class="input-style-1">
+                            <label>Кнопка</label>
+                            <input type='text' name="banner_button" value="{{old('banner_button',$contacts->banner_button)}}">
+                        </div>
+                        <hr>
+                        <h3>Возможности</h3>
+                        <div class="input-style-1">
+                        <div id="features">
+                            @if (isset($contacts->features))
+                                @php($phones = unserialize($contacts->features))
+                                @foreach($features as $key=>$feature)
+                                    @if (strlen($feature)>3)
+                                        <input type='text' name="features[{{$key}}]['title']" value="{{old("features[$key]['title']",$feature[$key]['title'])}}" >
+                                        <input type='text' name="features[{{$key}}]['desc']" value="{{old("features[$key]['desc']",$feature[$key]['desc'])}}" >
+                                        <hr>
+
+                                    @endif
+                                @endforeach
+                            @else
+                                <input type='text' name="features[]['title']" value="{{old('features[]["title"]')}}" >
+                                <input type='text' name="features[]['desc']"  value="{{old('features[]["desc"]')}}"><hr>
+                            @endif
+                        </div>
+                        </div>
+                        <div class="main-btn active-btn btn-hover" id="add-feature">Добавить элемент</div>
+                        <div class="col-12 mt-20">
                             <button type="submit" class="main-btn primary-btn btn-hover">
                                 Сохранить
                             </button>
@@ -107,6 +167,9 @@
 
             $("#add-phone").on( "click",function (){
                 $('#phones').append('<input type=\'text\' name="phones[]">');
+            })
+            $("#add-feature").on( "click",function (){
+                $('#features').append('<input type=\'text\' name="features[][\'title\']"><input type=\'text\' name="features[][\'desc\']" ><hr>');
             })
         });
     </script>

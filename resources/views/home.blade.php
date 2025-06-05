@@ -8,7 +8,7 @@
 @include("blocks.features")
 @include("blocks.achievement")
 @include("blocks.products")
-@include("blocks.our_clients")
+{{--@include("blocks.our_clients")--}}
 @include("blocks.last_news")
 @include("blocks.map")
 @include("blocks.footer")

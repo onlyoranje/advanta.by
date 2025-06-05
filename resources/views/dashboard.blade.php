@@ -52,7 +52,7 @@
                     <li><a href="{{route('posts_dashboard')}}" class="active"> Новости </a></li>
                     <li><a href="{{route('pages_dashboard')}}" class="active"> О компании </a></li>
                     <li><a href="{{route('medias_dashboard')}}" class="active"> Фото и видео </a></li>
-                    <li><a href="{{route('contacts_dashboard_edit')}}" class="active"> Контакты </a></li>
+                    <li><a href="{{route('contacts_dashboard_edit')}}" class="active"> Настройки сайта </a></li>
                     <li><a href="{{route('certificates_dashboard')}}" class="active"> Сертификаты </a></li>
                     <li><a href="{{route('parameter_dashboard')}}" class="active"> Параметры </a></li>
                     <li><a href="{{route('parameter_type_dashboard')}}" class="active"> Типы параметров </a></li>
