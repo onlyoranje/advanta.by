@@ -111,7 +111,7 @@
 
                         </div>
                         <div class="input-style-1 mt-20">
-                            <input type="file" name="img" >
+                            <input type="file" name="banner_img" >
                         </div>
                         <div class="input-style-1">
                             <label>Заголовок</label>
@@ -135,22 +135,67 @@
                         <div class="input-style-1">
                         <div id="features">
                             @if (isset($contacts->features))
-                                @php($phones = unserialize($contacts->features))
+                                @php($features = unserialize($contacts->features))
+
+
+                               {{-- @if (count($feature)>0)--}}
                                 @foreach($features as $key=>$feature)
-                                    @if (strlen($feature)>3)
-                                        <input type='text' name="features[{{$key}}]['title']" value="{{old("features[$key]['title']",$feature[$key]['title'])}}" >
-                                        <input type='text' name="features[{{$key}}]['desc']" value="{{old("features[$key]['desc']",$feature[$key]['desc'])}}" >
+
+                             {{--   <pre>
+                                     @php(print_r($features[1]['title']));
+                                </pre>--}}
+
+                                        <label class="edit_features">Заголовок </label>
+                                        <input type='text' name="features[{{$key}}][title]" value="{{old("features[$key]['title']",$features[$key]['title'])}}" >
+                                        <label>Описание </label>
+                                        <input type='text' name="features[{{$key}}][desc]" value="{{old("features[$key]['desc']",$features[$key]['desc'])}}" >
+                                        <label>Иконка </label>
+                                        <input type='text' name="features[{{$key}}][icon]" value="{{old("features[$key]['icon']",$features[$key]['icon'])}}" >
                                         <hr>
 
-                                    @endif
+
                                 @endforeach
+                                   {{-- @endif--}}
                             @else
-                                <input type='text' name="features[]['title']" value="{{old('features[]["title"]')}}" >
-                                <input type='text' name="features[]['desc']"  value="{{old('features[]["desc"]')}}"><hr>
+                                <label class="edit_features">Заголовок </label>
+                                <input type='text' name="features[0][title]" value="{{old("features[0]['title']")}}" >
+                                <label>Описание </label>
+                                <input type='text' name="features[0][desc]"  value="{{old("features[0]['desc']")}}">
+                                <label>Иконка </label>
+                                <input type='text' name="features[0][icon]" value="{{old("features[0]['icon']")}}" >
+                                <hr>
                             @endif
                         </div>
                         </div>
                         <div class="main-btn active-btn btn-hover" id="add-feature">Добавить элемент</div>
+
+                        <hr>
+                        <h3>Достижения</h3>
+                        <div class="input-style-1">
+                            <div id="achievements">
+                                @if (isset($contacts->achievements))
+                                    @php($achievements = unserialize($contacts->achievements))
+                                    @foreach($achievements as $key=>$achievement)
+
+                                            <label  class="edit_achievements">Заголовок </label>
+                                            <input type='text' name="achievements[{{$key}}][title]" value="{{old("achievements[$key]['title']",$achievements[$key]['title'])}}" >
+                                            <label>Описание </label>
+                                            <input type='text' name="achievements[{{$key}}][desc]" value="{{old("achievements[$key]['desc']",$achievements[$key]['desc'])}}" >
+                                            <hr>
+
+
+                                    @endforeach
+                                @else
+                                    <label class="edit_achievements">Заголовок </label>
+                                    <input type='text' name="achievements[0][title]" value="{{old('achievements[0][title]')}}" >
+                                    <label>Описание </label>
+                                    <input type='text' name="achievements[0][desc]"  value="{{old('achievements[0][desc]')}}">
+                                    <hr>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="main-btn active-btn btn-hover" id="add-achievement">Добавить элемент</div>
+
                         <div class="col-12 mt-20">
                             <button type="submit" class="main-btn primary-btn btn-hover">
                                 Сохранить
@@ -169,7 +214,12 @@
                 $('#phones').append('<input type=\'text\' name="phones[]">');
             })
             $("#add-feature").on( "click",function (){
-                $('#features').append('<input type=\'text\' name="features[][\'title\']"><input type=\'text\' name="features[][\'desc\']" ><hr>');
+                var key = $('.edit_features').length
+                $('#features').append('<label class="edit_features">Заголовок</label><input type=\'text\' name="features['+key+'][title]"><label>Описание</label><input type=\'text\' name="features['+key+'][desc]" ><label>Иконка</label><input type=\'text\' name="features['+key+'][icon]" ><hr>');
+            })
+            $("#add-achievement").on( "click",function (){
+                var key = $('.edit_achievements').length
+                $('#achievements').append('<label class="edit_achievements">Заголовок</label><input type=\'text\' name="achievements['+key+'][title]"><label>Описание</label><input type=\'text\' name="achievements['+key+'][desc]" ><hr>');
             })
         });
     </script>

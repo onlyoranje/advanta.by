@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('banner_button')->nullable();
             $table->string('banner_img')->nullable();
             $table->text('features')->nullable();
-            $table->text('achievement')->nullable();
+            $table->text('achievements')->nullable();
             $table->timestamps();
         });
         Contacts::create(['company_name'=>'Общество с ограниченной ответственностью «Адванта Технолоджи»','address'=>'Республика Беларусь, г. Брест, Красногвардейская улица, 114Б/5','coordinates'=>'52.126845,23.695958','email'=>'advanta_system@mail.ru','UNP'=>'291859037', 'bank'=>'р/с BY50POIS30120164918001933001 код POISBY2X, ОАО «Паритетбанк»']);

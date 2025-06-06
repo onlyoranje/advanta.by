@@ -22,6 +22,6 @@ class Contacts extends Model
         'banner_button',
         'banner_img',
         'features',
-        'achievement'
+        'achievements'
         ];
 }
