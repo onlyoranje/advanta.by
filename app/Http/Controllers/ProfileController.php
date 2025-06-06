@@ -18,6 +18,8 @@ class ProfileController extends Controller
         $rubrics = Rubrics::all();
         $contacts = Contacts::first();
         $posts= Posts::orderBy('created_at','desc')->limit(3)->get();
-        return view('home',['rubrics'=>$rubrics,'contact'=>$contacts,'posts'=>$posts]);
+        $features = unserialize($contacts->features);
+        $achievements = unserialize($contacts->achievements);
+        return view('home',['rubrics'=>$rubrics,'contact'=>$contacts,'posts'=>$posts,'features'=>$features,'achievements'=>$achievements]);
     }
 }

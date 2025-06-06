@@ -12,17 +12,19 @@
             </div>
         </div>
         <div class="row">
-            @foreach(unserialize($contact->features )as $feature)
+            @foreach($features as $feature)
             <div class="col-lg-4 col-md-6 col-12">
                 <!-- Start Single Feature -->
                 <div class="single-feature wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                    <i class="lni lni-comments-alt"></i>
-                    <h3><a href="#">Communication</a></h3>
-                    <p>Duis autem vel eum iriure dolor in hendrerit in vul esse molestie consequat vel illum.</p>
+                    <i class="lni lni-{{$feature['icon']}}"></i>
+                    <h3><a href="#">{{$feature['title']}}</a></h3>
+                    <p><a href="#">{{$feature['desc']}}</a></p>
                 </div>
+            </div>
+
                 <!-- End Single Feature -->
                 @endforeach
-            </div>
+
 
         </div>
     </div>
