@@ -1011,7 +1011,7 @@ ol {
   font-size: 30px;
   margin-bottom: 18px;
   line-height: 40px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   position: relative;
   font-weight: 700;
 }
@@ -1258,7 +1258,7 @@ ol {
 
 .button .btn {
   display: inline-block;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   font-size: 14px;
   font-weight: 600;
   padding: 15px 30px;
@@ -1727,7 +1727,7 @@ ol {
   display: block;
   font-size: 13px;
   font-weight: 500;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   background: transparent;
   border-radius: 0;
 }
@@ -1987,7 +1987,7 @@ ol {
   content: "";
   left: 0;
   top: 0;
-  background-image: url("../images/hero/shape2.png");
+  background-image: url("/images/hero/shape2.png");
   background-repeat: no-repeat;
   height: 100px;
   width: 100px;
@@ -2237,7 +2237,7 @@ ol {
   margin-left: 5px;
   color: #3F8FD2;
   font-weight: 500;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
 }
 
 .about-us .about-right {
@@ -2363,7 +2363,7 @@ ol {
   line-height: 26px;
   display: block;
   margin-bottom: 5px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
 }
 
 .pricing-table .single-table .title p {
@@ -2504,7 +2504,7 @@ ol {
   font-size: 16px;
   font-weight: 600;
   position: relative;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   margin-bottom: 30px;
 }
 
@@ -3771,7 +3771,7 @@ ol {
 
 .free-version-banner .section-title span {
   font-weight: 500;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
 }
 
 .free-version-banner .section-title {
