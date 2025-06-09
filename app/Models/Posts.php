@@ -36,7 +36,7 @@ class Posts extends Model
             $image = ImageManager::imagick()->read(Storage::path('/media/').$url);
 
 // resize to 300 x 200 pixel
-            $image->scale($w, $h);
+            $image->coverDown($w, $h);
             $image->save(Storage::path('/media/').'thumbnails/'.$w.'x'.$h.'/'.$url)
             //$thumbnail = Image::make(Storage::path('/public/').$this->$url);
             /*$thumbnail = Image::make(Storage::path('/public/').$url);

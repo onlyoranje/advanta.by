@@ -19,7 +19,7 @@
                                         <div class="image">
                                             <a href="{{route('media',$media->id)}}">
                                                 @if (isset($media->url))
-                                                    <img class="thumb" src="{{Storage::url($media->resizeImage($media->url,null,480))}}" alt="{{ $media->title }}">
+                                                    <img class="thumb" src="{{Storage::url($media->resizeImage($media->url,480,480))}}" alt="{{ $media->title }}">
                                                 @else
                                                     <img src="/storage/test/image.jpg" alt="{{ $media->title }}">
 

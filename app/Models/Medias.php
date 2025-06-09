@@ -30,7 +30,7 @@ class Medias extends Model
             $image = ImageManager::imagick()->read(Storage::path('/media/').$url);
 
 // resize to 300 x 200 pixel
-            $image->resize($w, $h);
+            $image->coverDown($w, $h);
             $image->save(Storage::path('/media/').'thumbnails/'.$w.'x'.$h.'/'.$url);
 
         }

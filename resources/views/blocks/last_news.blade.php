@@ -19,7 +19,7 @@
                 <!-- Single News -->
                 <div class="single-news custom-shadow-hover wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
                     <div class="image">
-                        <img class="thumb" src="{{Storage::url($post->resizeImage($post->image,null,277))}}" alt="#">
+                        <img class="thumb" src="{{Storage::url($post->resizeImage($post->image,416,277))}}" alt="#">
                     </div>
                     <div class="content-body">
                         <a class="cat" href="#">{{$post->category}}</a>
