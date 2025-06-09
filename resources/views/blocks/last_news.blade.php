@@ -22,8 +22,8 @@
                         <img class="thumb" src="{{Storage::url($post->resizeImage($post->image,null,277))}}" alt="#">
                     </div>
                     <div class="content-body">
-                        <a class="cat" href="{{route('post',$post->id)}}">{{$post->category}}</a>
-                        <h4 class="title"><a href="blog-single-sidebar.html">{{$post->title}}</a></h4>
+                        <a class="cat" href="#">{{$post->category}}</a>
+                        <h4 class="title"><a href="{{route('post',$post->id)}}">{{$post->title}}</a></h4>
                         <p>{{$post->preview_text}}</p>
                         <div class="button">
                             <a href="{{route('post',$post->id)}}" class="btn">Читать</a>
