@@ -50,4 +50,13 @@ class MediasController extends Controller
         $media->delete();
         return redirect()->route('medias_dashboard');
     }
+    public function medias(Request $request)
+    {
+        $medias= Medias::orderBy('sort','asc')->paginate(10);
+        $title = 'Фото и видео';
+        if ($request->category) $title.='. Категория "'.$request->category.'"';
+        if ($request->tag) $title.='. #'.$request->tag;
+        if ($request->page>1) $title.='. Страница '.$request->page;
+        return view('media.list',['medias'=>$medias,'title'=>$title]);
+    }
 }

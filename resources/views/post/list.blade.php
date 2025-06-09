@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('base')
 @section('title', $title)
 @section('main')
 

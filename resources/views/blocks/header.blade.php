@@ -1,12 +1,18 @@
-<!-- Start Header Area -->
+<?php
+
+use App\Models\Contacts;
+
+$contact = Contacts::first();
+$phones = unserialize($contact->phones);
+?>
+    <!-- Start Header Area -->
 <header class="header">
     <div class="header-inner">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="/"><img src="assets/images/logo/logo.png"
-                                                                       alt="#"></a>
+                        <a class="navbar-brand" href="/"><img src="{{Storage::url('media/'.$contact->logo)}}"                                                              alt="#"></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +31,10 @@
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         @php($about_menu = \App\Models\StaticPages::orderBy('sort')->orderBy('title')->get())
                                         @if (count($about_menu)>0)
-                                             @foreach ($about_menu as $about)
-                                            <li><a  class=dropdown-item' href='{{route('static_page',$about->url)}}'> {{$about->title}}</a></li>
-
-
+                                            @foreach ($about_menu as $about)
+                                                <li><a class=dropdown-item'
+                                                       href='{{route('static_page',$about->url)}}'> {{$about->title}}</a>
+                                                </li>
 
                                             @endforeach
                                         @endif
@@ -36,7 +42,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#">Фото и видео</a>
+                                    <a class="nav-link" href="{{route('medias')}}">Фото и видео</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -50,10 +56,10 @@
                                                 $traverse = function ($rubrics_menu, $prefix = '-') use (&$traverse) {
                                                     foreach ($rubrics_menu as $rubric) {
                                                         echo '<li><a  class=dropdown-item';
-                                                        echo "  href='".route('rubric',$rubric->id)."'";
-                                                        echo ">". PHP_EOL.$prefix.' '.$rubric->title."</a></li>";
+                                                        echo "  href='" . route('rubric', $rubric->id) . "'";
+                                                        echo ">" . PHP_EOL . $prefix . ' ' . $rubric->title . "</a></li>";
 
-                                                        $traverse($rubric->children, $prefix.'-');
+                                                        $traverse($rubric->children, $prefix . '-');
                                                     }
                                                 };
 
@@ -71,7 +77,7 @@
                                 </li>
                             </ul>
                             <div class="button">
-                                <a href="contact.html" class="btn">Get it now</a>
+                                <a href="contact.html" class="btn">{{$phones[0]}}</a>
                             </div>
                         </div>
                     </nav>

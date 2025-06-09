@@ -110,6 +110,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('/posts/', [App\Http\Controllers\PostsController::class, 'posts'])->name('posts');
 Route::get('/post/{post}', [App\Http\Controllers\PostsController::class, 'post'])->name('post');
 
+Route::get('/media/', [App\Http\Controllers\MediasController::class, 'medias'])->name('medias');
+Route::get('/media/{media}', [App\Http\Controllers\MediasController::class, 'media'])->name('media');
+
 Route::get('/about/{url}', [App\Http\Controllers\StaticPagesController::class, 'detail'])->name('static_page');
 
 Route::get('/rubric', [App\Http\Controllers\RubricsController::class, 'rubric'])->name('rubrics');

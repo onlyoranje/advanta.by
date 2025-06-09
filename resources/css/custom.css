@@ -1821,3 +1821,7 @@ blockquote span {
 .latest-news-area .single-news .image img {
      width: unset;
 }
+.navbar-brand img {
+    max-height: 80px;
+    width: unset;
+}
