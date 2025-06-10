@@ -42,6 +42,9 @@ $phones = unserialize($contact->phones);
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{{route('certificates')}}">Сертификаты</a>
+                                </li>
+                                <li class="nav-item dropdown">
                                     <a class="nav-link" href="{{route('medias')}}">Фото и видео</a>
                                 </li>
                                 <li class="nav-item dropdown">

@@ -113,6 +113,9 @@ Route::get('/post/{post}', [App\Http\Controllers\PostsController::class, 'post']
 Route::get('/media/', [App\Http\Controllers\MediasController::class, 'medias'])->name('medias');
 Route::get('/media/{media}', [App\Http\Controllers\MediasController::class, 'media'])->name('media');
 
+Route::get('/certificates/', [App\Http\Controllers\CertificatesController::class, 'certificates'])->name('certificates');
+Route::get('/certificates/{certificate}', [App\Http\Controllers\CertificatesController::class, 'certificate'])->name('certificate');
+
 Route::get('/about/{url}', [App\Http\Controllers\StaticPagesController::class, 'detail'])->name('static_page');
 
 Route::get('/rubric', [App\Http\Controllers\RubricsController::class, 'rubric'])->name('rubrics');

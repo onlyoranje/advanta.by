@@ -50,4 +50,16 @@ class CertificatesController extends Controller
         $certificates->delete();
         return redirect()->route('certificates_dashboard');
     }
+    public function certificates(Request $request)
+    {
+        $certificates= Certificates::orderBy('sort','asc')->paginate(10);
+        $title = 'Сертификаты';
+
+        if ($request->page>1) $title.='. Страница '.$request->page;
+        return view('certificates.list',['certificates'=>$certificates,'title'=>$title]);
+    }
+    public function certificate(Certificates $certificate)
+    {
+        return view('certificates.detail',['certificate'=>$certificate]);
+    }
 }
