@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="row align-items-center">
-
+<img src="{{Storage::url('certificates/'.$certificate->url)}}">
             </div>
         </div>
     </section>
