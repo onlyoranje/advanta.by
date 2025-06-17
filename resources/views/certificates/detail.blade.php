@@ -16,6 +16,7 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="/">Главная</a></li>
+                        <li><a href="{{route('certificates')}}">Сертификаты</a></li>
                         <li>{{$certificate->title}}</li>
                     </ul>
                 </div>
@@ -33,9 +34,17 @@
                     </div>
                 </div>
             </div>
-            <div class="row align-items-center">
-<img src="{{Storage::url('certificates/'.$certificate->url)}}">
+            <div class="row justify-content-md-center">
+                <div class="col-12 align-self-center">
+<img class="rounded mx-auto d-block" src="{{Storage::url('certificates/'.$certificate->url)}}">
+                </div>
+
+                <div class="col-4 mt-4" style="text-align: center">
+                    <a href="{{route('certificates')}}">К списку</a>
+
+                </div>
             </div>
+
         </div>
     </section>
 

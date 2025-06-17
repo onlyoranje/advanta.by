@@ -54,7 +54,7 @@
         <div class="select-style-1">
             <label>Категория</label>
             <div class="select-position">
-                <select name="rubric_id"  class="user-chosen-select">
+                <select name="category"  class="user-chosen-select">
                     @if (isset($categories))
                         @foreach ($categories as $category)
                             <option value="{{$category}}">{{$category}}</option>

@@ -16,8 +16,8 @@ class PostsController extends Controller
         $posts=Posts::where('active','Y')->where(function($query)
         {
             global $request;
-            if ($request->category) $query->where('category', $request->category );
-            if ($request->tag) $query->where('tags', 'like', '%' .$request->tag. '%' );
+            if (isset($request->category)) $query->where('category', $request->category );
+            if (isset($request->tag)) $query->where('tags', 'like', '%' .$request->tag. '%' );
 
         })->orderBy('id','desc')->paginate(10);
         $title = 'Новости';
@@ -67,17 +67,8 @@ class PostsController extends Controller
     }
     public function post(Posts $post){
         $title = $post->title;
-        $stat = PostStatistic::updateOrCreate(['post_id'=>$post->id,'user_token'=> Session::getId()]);
-        if ($stat->updated_at < date('Y-m-d H:i:s',strtotime('-1 day')) and $stat->user_token==Session::getId())
-        {
-            $stat->fill(['views'=>$stat->views+1]);
-            $stat->save();
-        }
-        elseif ($stat->user_token!=Session::getId())
-        {
-            $stat->fill(['views'=>1]);
-            $stat->save();
-        }
+
+
         $breadcrumbs['list'][] = Array('route'=>'posts','title'=>'Новости');
         $breadcrumbs['list'][] = Array('route'=>'posts','title'=>$post->category,'param'=>'?category='.$post->category);
         return view('post.detail',['title'=>$title,'post'=>$post,'breadcrumbs'=>$breadcrumbs]);

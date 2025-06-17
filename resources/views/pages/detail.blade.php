@@ -3,7 +3,7 @@
 @extends('base')
 
 @section('main')
-    @include("blocks.header")
+@include("blocks.header")
 <div class="breadcrumbs breadcrumbs-page overlay" style="background-image: url({{Storage::url('media/'.$page->image)}});">
     <div class="container">
         <div class="row align-items-center">

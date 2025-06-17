@@ -1,6 +1,9 @@
-@extends('base')
 @section('title', $title)
+{{--@section('description', $description)--}}
+@extends('base')
+
 @section('main')
+    @include("blocks.header")
 
     <section class="section latest-news-area blog-list">
         <div class="container">
@@ -50,25 +53,8 @@
                 </div>
                 <aside class="col-lg-4 col-md-5 col-12">
                     <div class="sidebar blog-grid-page">
-                        <!-- Start Single Widget -->
-                        {{--<div class="widget search-widget">
-                            <h5 class="widget-title"><span>Search This Site</span></h5>
-                            <form action="#">
-                                <input type="text" placeholder="Search Here...">
-                                <button type="submit"><i class="lni lni-search-alt"></i></button>
-                            </form>
-                        </div>--}}
-                        <!-- End Single Widget -->
-                        <!-- Start Single Widget -->
-                    @include('widgets.top_posts')
-                        <!-- End Single Widget -->
-                    @include('widgets.top_category_post')
-                        <!-- Start Single Widget -->
-                    @include('widgets.top_tags_post')
-                        <!-- End Single Widget -->
-                        <!-- Start Single Widget -->
-                        @include('widgets.banner_sidebar')
-                        <!-- End Single Widget -->
+
+
                     </div>
                 </aside>
 

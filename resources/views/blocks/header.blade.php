@@ -73,7 +73,7 @@ $phones = unserialize($contact->phones);
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#">Новости</a>
+                                    <a class="nav-link" href="{{route('posts')}}">Новости</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('contacts')}}">Контакты</a>
