@@ -106,7 +106,7 @@
                         <label>Изображение</label>
                         <div class="col-6">
 
-                            <img src="{{Storage::url('media/'.$contacts->logo)}}" class="img-thumbnail"  alt="">
+                            <img src="{{Storage::url('media/'.$contacts->banner_img)}}" class="img-thumbnail"  alt="">
 
 
                         </div>
