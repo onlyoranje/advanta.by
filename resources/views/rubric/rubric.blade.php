@@ -22,7 +22,7 @@
                         <!-- Image -->
                         <div class="image">
                             @if (isset($main_photo))
-                                <img src="{{Storage::url($main_photo->resize(360, 360))}}" alt="{{$product->title}}">
+                                <img src="{{Storage::url($main_photo->resize(false, 360))}}" alt="{{$product->title}}" style="object-fit: contain">
                             @endif
                             <!-- Social -->
                             <ul class="social">
@@ -31,6 +31,9 @@
                                         <li>{{$parameter->parameters->name}}: {{$parameter->value}}</li>
 
                                     @endforeach
+                                    @php
+                                    unset($main_photo);
+                                    @endphp
                                 @endif
 
                             </ul>

@@ -14,7 +14,22 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+
+     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/LineIcons.2.0.css">
+    <link rel="stylesheet" type="text/css" href="/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/css/tiny-slider.css">
+    <link rel="stylesheet" type="text/css" href="/css/glightbox.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/count-up.min.js"></script>
+    <script src="/js/tiny-slider.js"></script>
+    <script src="/js/glightbox.min.js"></script>
+    <script src="/js/imagesloaded.min.js"></script>
+    <script src="/js/isotope.min.js"></script>
+    <script src="/js/main.js"></script>
 </head>
 <body>
     <div id="app">

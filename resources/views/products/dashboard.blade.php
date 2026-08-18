@@ -74,9 +74,9 @@
 
                         <tr>
                             <td>
-                                <div class="employee-image">
+                                <div class="">
                                     @if (isset($main_photo))
-                                        <img src="{{Storage::url($main_photo->resize(60, 60))}}" alt="">
+                                        <img src="{{Storage::url($main_photo->resize(false, 48))}}" alt=""  style="object-fit: contain">
                                     @endif
                                 </div>
                             </td>
@@ -98,7 +98,7 @@
                             <td>
                                 <div class="action">
                                 <button class="text-danger">
-                                    <a href='{{route('product_dashboard_edit', ['product' => $product->id])}}'><i class="lni lni-pencil"></i></a>
+                                    <a href='{{route('product_dashboard_edit', ['product' => $product->id])}}'><i class="lni lni-pencil-alt"></i></a>
                                     <a href='{{route('product_dashboard_delete', ['product' => $product->id])}}'><i class="lni lni-trash"></i></a>
                                 </button>
                                 </div>

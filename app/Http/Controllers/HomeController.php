@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contacts;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,7 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $contacts = Contacts::first();
-        return view('home',['contacts'=>$contacts]);
+        $products_onmain = Products::where('on_main','Y')->limit(4)->get();
+
+        return view('home',['contacts'=>$contacts,'products_onmain'=>$products_onmain]);
     }
 }

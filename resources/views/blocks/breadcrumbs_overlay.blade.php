@@ -4,7 +4,7 @@
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="breadcrumbs-content">
                     <h1 class="page-title">@yield('title')</h1>
-                    <p>@yield('description')</p>
+     <!--               <p>@yield('description')</p>    -->
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-12">

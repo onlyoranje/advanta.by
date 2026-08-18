@@ -15,7 +15,7 @@ class Product_photo extends Model
     public function product(){
         return $this->belongsTo(Products::class);
     }
-    public function resize($w,$h)
+    public function resize($w=false,$h=false)
     {
         $size = getimagesize(Storage::path('').$this->url);
         $w_orig = $size[0];

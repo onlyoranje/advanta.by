@@ -61,4 +61,5 @@
             </div>
         </div>
     </section>
+        @include("blocks.footer")
 @endsection

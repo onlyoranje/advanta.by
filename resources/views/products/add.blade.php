@@ -57,7 +57,7 @@
                             <div class="select-position">
                                 <select name="rubrics_id"  class="user-chosen-select">
                                     <option value="">Категория</option>
-                                    <?
+                                    <?php
                                     $traverse = function ($rubrics, $prefix = '-') use (&$traverse) {
                                         foreach ($rubrics as $rubric) {
                                             echo "<option value=".$rubric->id." ";
@@ -74,7 +74,13 @@
                             </div>
                         </div>
                         <!-- end select -->
+                        <div class="form-check checkbox-style checkbox-success mb-20">
 
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input width-auto" name="on_main"  value="Y">
+                                                    <label class="form-check-label">Показывать на главной</label>
+                                                </div>
+                                            </div>
                         <div class="col-12">
                             <input type="file" name="file" >
                         </div>

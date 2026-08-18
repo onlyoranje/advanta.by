@@ -37,13 +37,13 @@
                                     @if (count($product->product_photo)>0)
                                         <div class="images mt-3">
                                             @foreach($product->product_photo as $key=>$image)
-                                                <img  src="{{ Storage::url($image->resize(120, 120, function ($constraint) { $constraint->aspectRatio();})) }}" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$key}}" id="carousel-thumb-{{$key}}"
+                                                <img  src="{{ Storage::url($image->resize(false, 120, function ($constraint) { $constraint->aspectRatio();})) }}" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$key}}" id="carousel-thumb-{{$key}}"
                                                       @if ($key==0)
                                                           aria-current="true" class=" carousel-thumbs"
                                                       @else
                                                           class="carousel-thumbs"
                                                       @endif
-                                                      aria-label="1">
+                                                      aria-label="1"  style="object-fit: contain">
                                             @endforeach
                                         </div>
                                     @endif
@@ -53,11 +53,7 @@
                         </div>
                         <h3>Описание </h3>
 
-                        <p>Marketing consumer products felt like a genteel game of lawn tennis: Established competitors
-                            invested in creative with long lead times, using proven models of TV and big-box retail,
-                            alongside trusted agency partners. Today, it’s more like a sprawling contest of mixed
-                            martial arts, with new competitors playing by different rules; an unprecedented complexity
-                            of channels, content and partners.</p>
+                        <p>{{$product->content}}</p>
 
 
 

@@ -56,9 +56,9 @@
                         <div class="select-style-1">
                             <label>Категория</label>
                             <div class="select-position">
-                                <select name="rubric_id"  class="user-chosen-select">
+                                <select name="rubrics_id"  class="user-chosen-select">
                                     <option value="">Категория</option>
-                                    <?
+                                    <?php
                                     $traverse = function ($rubrics,$product, $prefix = '-') use (&$traverse) {
                                         foreach ($rubrics as $rubric) {
                                             echo "<option value=".$rubric->id." ";
@@ -77,6 +77,15 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-check checkbox-style checkbox-success mb-20">
+
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input width-auto" name="on_main" {{($product->on_main=='Y')?  'checked' : ''}} value="Y">
+                                                    <label class="form-check-label">Показывать на главной</label>
+                                                </div>
+                                            </div>
+
                         <!-- end select -->
                         @php
                             $old_image=[];
@@ -191,13 +200,13 @@
 
                 }
             });
-            Parameter_Rubric($("select[name='rubric_id']").val())
-            $("select[name='rubric_id']").change(function () {
+            Parameter_Rubric($("select[name='rubrics_id']").val())
+            $("select[name='rubrics_id']").change(function () {
                 Parameter_Rubric($(this).val())
 
             })
 
-            $("select[name='rubric_id']").attr('data-name', 'rubric')
+            $("select[name='rubrics_id']").attr('data-name', 'rubric')
 
         })
     </script>

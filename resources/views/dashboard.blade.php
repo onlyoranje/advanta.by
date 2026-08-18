@@ -1,3 +1,9 @@
+<?
+use App\Models\Contacts;
+use App\Models\Products;
+$contact = Contacts::first();
+$phones = unserialize($contact->phones);
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -5,24 +11,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
-    <title>PlainAdmin Demo | Bootstrap 5 Admin Template</title>
+    <title>PlainAdmin Demo | **Bootstrap 5 Admin Template</title>
 
     <!-- ========== All CSS files linkup ========= -->
-    {{--<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/lineicons.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="assets/css/fullcalendar.css" />
-    <link rel="stylesheet" href="assets/css/fullcalendar.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />--}}
-    @vite(['resources/js/app_db.tsx'])
+    <link rel="stylesheet" href="/css/db/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/db/lineicons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/db/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/db/fullcalendar.css" />
+    <link rel="stylesheet" href="/css/db/fullcalendar.css" />
+    <link rel="stylesheet" href="/css/db/jquery.fileuploader.min.css" />
+    <link rel="stylesheet" href="/css/db/main.css" />
+
+    <script src="/js/db/bootstrap.bundle.min.js"></script>
+    <script src="/js/db/polyfill.js"></script>
+    <script src="/js/db/jquery-3.6.4.min.js"></script>
+    <script src="/js/db/jquery-ui.min.js"></script>
+    <script src="/js/db/jquery.fileuploader.min.js"></script>
+    <script src="/js/db/main.js"></script>
+    <script src="/js/db/custom.js"></script>
+
 </head>
 <body>
 
 <!-- ======== sidebar-nav start =========== -->
 <aside class="sidebar-nav-wrapper">
     <div class="navbar-logo">
-        <a href="index.html">
-            <img src="/assets/images/logo/logo.svg" alt="logo" width="150" />
+        <a href="/" target="_blank">
+            <img src="{{Storage::url('media/'.$contact->logo)}}" alt="logo" width="150" />
         </a>
     </div>
     <nav class="sidebar-nav">
@@ -323,4 +338,28 @@
 <script src="/assets/vendor/ckeditor5/build/ckeditor.js"></script>
 <script type="text/javascript" src="/js/ckfinder/ckfinder.js"></script>
 <script>CKFinder.config( { connectorPath: '/ckfinder/connector' } );</script>
+<script>
+        window.addEventListener("load", function(){
+
+            ClassicEditor
+                .create( document.querySelector( '#editor' ), {
+
+                    ckfinder: {
+                        uploadUrl: '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+                    },
+                    mediaEmbed: {
+                        previewsInData: true
+                    }
+
+
+                } )
+                .catch( error => {
+                    console.error( error );
+                } );
+            ClassicEditor.replace( 'Resolution', {
+                height: 500
+            } );
+
+        } );
+    </script>
 </html>

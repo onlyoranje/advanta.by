@@ -1,7 +1,13 @@
+<?php
 
+use App\Models\Contacts;
+
+$contact = Contacts::first();
+$phones = unserialize($contact->phones);
+?>
 <!-- Start Footer Area -->
 <footer class="footer">
-    <div class="call-action">
+<!--    <div class="call-action">
         <div class="container">
             <div class="inner-content">
                 <div class="row align-items-center">
@@ -18,18 +24,18 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- Start Middle Top -->
     <div class="footer-middle">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-12">
-                    <!-- Single Widget -->
+
                     <div class="f-about single-footer">
                         <div class="logo">
-                            <a href="index.html"><img src="assets/images/logo/footer-logo.png" alt="Logo"></a>
+                            <a href="index.html"><img src="{{Storage::url('media/'.$contact->logo)}}" alt="Advanta"></a>
                         </div>
-                        <p>Start building your creative website with our awesome template Bold.</p>
+                        <p>Превращаем воду в совершенство</p>
                         <div class="footer-social">
                             <ul>
                                 <li><a href="#"><i class="lni lni-facebook-original"></i></a></li>
@@ -39,61 +45,64 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- End Single Widget -->
+
                 </div>
                 <div class="col-lg-8 col-md-8 col-12">
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <!-- Single Widget -->
+                                                <div class="col-lg-4 col-md-6 col-12">
+
                             <div class="single-footer sm-custom-border f-link">
-                                <h3>Pages</h3>
+                                <h3>Продукция</h3>
                                 <ul>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Our Services</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">Our Blog</a></li>
+                                @php($rubrics_menu = \App\Models\Rubrics::orderBy('sort')->orderBy('title')->get()->toTree())
+                                        @if (count($rubrics_menu)>0)
+                                                <?php
+                                                $traverse = function ($rubrics_menu, $prefix = '-') use (&$traverse) {
+                                                    foreach ($rubrics_menu as $rubric) {
+                                                        echo '<li><a ';
+                                                        echo "  href='" . route('rubric', $rubric->id) . "'";
+                                                        echo ">" . PHP_EOL . $prefix . ' ' . $rubric->title . "</a></li>";
+
+                                                        $traverse($rubric->children, $prefix . '-');
+                                                    }
+                                                };
+
+                                                $traverse($rubrics_menu);
+                                                ?>
+                                        @endif
+
+
+
                                 </ul>
                             </div>
-                            <!-- End Single Widget -->
+
                         </div>
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <!-- Single Widget -->
-                            <div class="single-footer sm-custom-border f-link">
-                                <h3>Product</h3>
-                                <ul>
-                                    <li><a href="#">Features</a></li>
-                                    <li><a href="#">Pricing</a></li>
-                                    <li><a href="#">News</a></li>
-                                    <li><a href="#">Support</a></li>
-                                </ul>
-                            </div>
-                            <!-- End Single Widget -->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <!-- Single Widget -->
+                        <div class="col-lg-4 col-md-6 col-12">
+
                             <div class="single-footer md-custom-border sm-custom-border f-link">
-                                <h3>Services</h3>
+                                <h3>Полезное</h3>
                                 <ul>
-                                    <li><a href="#">Digital Marketing</a></li>
-                                    <li><a href="#">Content Writing</a></li>
-                                    <li><a href="#">SEO for Business</a></li>
-                                    <li><a href="#">UI Design</a></li>
+                                    <li><a href="{{route('medias')}}">Фото и видео</a></li>
+                                    <li><a href="{{route('certificates')}}">Сертификаты</a></li>
+                                    <li><a href="{{route('posts')}}">Статьи</a></li>
                                 </ul>
                             </div>
-                            <!-- End Single Widget -->
+
                         </div>
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <!-- Single Widget -->
+                        <div class="col-lg-4 col-md-6 col-12">
+
                             <div class="single-footer md-custom-border sm-custom-border f-link">
-                                <h3>Legal</h3>
+                                <h3> </h3>
                                 <ul>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
-                                    <li><a href="#">Support Team</a></li>
-                                    <li><a href="#">Return Policy</a></li>
+                                    <li>Общество с ограниченной ответственностью «Адванта Технолоджи»</li>
+                                    <li>Республика Беларусь, г. Брест, Красногвардейская улица, 114Б/5</li>
+                                    <li>+375 33 612-44-04</li>
+                                    <li>advanta_system@mail.ru</li>
+
+
                                 </ul>
                             </div>
-                            <!-- End Single Widget -->
+
                         </div>
                     </div>
                 </div>
@@ -108,8 +117,8 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="left">
-                            <p>Designed and Developed by<a href="https://graygrids.com/" rel="nofollow"
-                                                           target="_blank">GrayGrids</a></p>
+                            <p>Общество с ограниченной ответственностью «Адванта Технолоджи»
+УНП 291859037</p>
                         </div>
                     </div>
                 </div>

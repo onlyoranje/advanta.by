@@ -17,14 +17,40 @@
 
     <!-- ========================= CSS here ========================= -->
 
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/LineIcons.2.0.css">
+    <link rel="stylesheet" type="text/css" href="/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/css/tiny-slider.css">
+    <link rel="stylesheet" type="text/css" href="/css/glightbox.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/count-up.min.js"></script>
+    <script src="/js/tiny-slider.js"></script>
+    <script src="/js/glightbox.min.js"></script>
+    <script src="/js/imagesloaded.min.js"></script>
+    <script src="/js/isotope.min.js"></script>
+    <script src="/js/main.js"></script>
 
-    @vite(['resources/js/app.tsx'])
+
 </head>
 
 <body class="">
 
 
 @yield('main')
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105551195', 'ym');
 
+    ym(105551195, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/105551195" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </body>
 </html>

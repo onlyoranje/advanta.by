@@ -1,9 +1,11 @@
 <?php
 
 use App\Models\Contacts;
-
+use App\Models\Products;  
 $contact = Contacts::first();
 $phones = unserialize($contact->phones);
+
+$products_onmain = Products::where('on_main','Y')->limit(4)->get();
 ?>
     <!-- Start Header Area -->
 <header class="header">
@@ -55,7 +57,7 @@ $phones = unserialize($contact->phones);
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         @php($rubrics_menu = \App\Models\Rubrics::orderBy('sort')->orderBy('title')->get()->toTree())
                                         @if (count($rubrics_menu)>0)
-                                                <?
+                                                <?php
                                                 $traverse = function ($rubrics_menu, $prefix = '-') use (&$traverse) {
                                                     foreach ($rubrics_menu as $rubric) {
                                                         echo '<li><a  class=dropdown-item';
@@ -73,14 +75,16 @@ $phones = unserialize($contact->phones);
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link" href="{{route('posts')}}">Новости</a>
+                                    <a class="nav-link" href="{{route('posts')}}">Статьи</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{route('contacts')}}">Контакты</a>
                                 </li>
                             </ul>
                             <div class="button">
-                                <a href="contact.html" class="btn">{{$phones[0]}}</a>
+                                @if (is_array($phones))
+                                <a href="tel:{{$phones[0]}}"  style="font-weight: bold">{{$phones[0]}}</a>
+                                @endif
                             </div>
                         </div>
                     </nav>

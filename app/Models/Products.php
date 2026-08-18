@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
-    protected $fillable = ['title', 'content', 'rubrics_id','sort'];
+    protected $fillable = ['title', 'content', 'rubrics_id','sort','on_main'];
     public function rubrics() {
         return $this->belongsTo(Rubrics::class);
     }

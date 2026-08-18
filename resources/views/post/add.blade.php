@@ -103,28 +103,5 @@
             </div>
         </div>
     </div>
-    <script>
-        window.addEventListener("load", function(){
-
-            ClassicEditor
-                .create( document.querySelector( '#editor' ), {
-
-                    ckfinder: {
-                        uploadUrl: '/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-                    },
-                    mediaEmbed: {
-                        previewsInData: true
-                    }
-
-
-                } )
-                .catch( error => {
-                    console.error( error );
-                } );
-            ClassicEditor.replace( 'Resolution', {
-                height: 500
-            } );
-
-        } );
-    </script>
+    
 @endsection

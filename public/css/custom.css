@@ -1,0 +1,327 @@
+/*======================================
+	Features CSS
+========================================*/
+.features.style2 .single-feature {
+    text-align: center;
+    background-color: #fff;
+    padding: 70px 40px;
+    border-radius: 5px;
+    z-index: 5;
+    position: relative;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 50px rgba(87, 87, 87, 0.23);
+    box-shadow: 0px 0px 50px rgba(87, 87, 87, 0.23);
+    border-radius: 10px;
+}
+
+.features.style2 .single-feature::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 0%;
+    background-color: #265285;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.features.style2 .single-feature:hover::before {
+    width: 100%;
+}
+
+.features.style2 .single-feature i {
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    background-color: #265285;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.features.style2 .single-feature h3 a {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+    color: #081828;
+}
+
+.features.style2 .single-feature h3 a:hover {
+    color: #265285;
+}
+
+.features.style2 .single-feature:hover i {
+    border-radius: 50%;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+.features.style3 {
+    background-color: #081828;
+    padding: 70px 0 100px 0;
+}
+
+.features.style3 .single-feature {
+    padding: 0;
+    padding-left: 90px;
+    position: relative;
+    padding-right: 30px;
+    margin-top: 30px;
+}
+
+.features.style3 .single-feature i {
+    font-size: 25px;
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    top: 11px;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 5px;
+    color: #265285;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.features.style3 .single-feature:hover i {
+    background-color: #265285;
+    color: #fff;
+}
+
+.features.style3 .single-feature h3 a {
+    color: #fff;
+}
+
+.features.style3 .single-feature p {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.features .single-feature {
+    position: relative;
+    padding-right: 62px;
+}
+
+.features .single-feature .serial {
+    font-size: 50px;
+    font-weight: 800;
+    color: #265285;
+    opacity: 0.2;
+    position: absolute;
+    right: 10px;
+    top: -17px;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.features .single-feature h5 {
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #265285;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.features .single-feature h5::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0%;
+    background-color: #265285;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.features .single-feature:hover h5:before {
+    width: 100%;
+}
+
+.features .single-feature:hover h5 {
+    letter-spacing: 2px;
+}
+
+.features .single-feature h3 {
+    line-height: 32px;
+}
+
+.features .single-feature h3 a {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.features .single-feature h3 a:hover {
+    color: #265285;
+}
+
+.features .single-feature p {
+    display: block;
+    margin-top: 20px;
+}
+
+.features .single-feature:hover span {
+    color: #265285;
+    opacity: 1;
+}
+/*======================================
+    Blog CSS
+========================================*/
+.latest-news-area {
+    background-color: #F4F7FA;
+}
+
+.latest-news-area .single-news {
+    border-radius: 7px;
+    background-color: #fff;
+}
+
+.latest-news-area .single-news .image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 7px 7px 0 0;
+}
+
+.latest-news-area .single-news .image img {
+    height: 100%;
+    width: 100%;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.latest-news-area .single-news .content-body {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 0 0 7px 7px;
+}
+
+.latest-news-area .single-news .content-body .cat {
+    color: #888;
+    font-size: 13px;
+}
+
+.latest-news-area .single-news .content-body .cat:hover {
+    color: #265285;
+}
+
+.latest-news-area .single-news .content-body .title {
+    font-size: 18px;
+    margin-top: 10px;
+    line-height: 28px;
+}
+
+.latest-news-area .single-news .content-body .title a {
+    color: #081828;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.latest-news-area .single-news .content-body .title a:hover {
+    color: #265285;
+}
+
+.latest-news-area .single-news .content-body p {
+    color: #888;
+    margin-top: 15px;
+}
+
+.latest-news-area .single-news .content-body .button {
+    margin-top: 30px;
+}
+
+.latest-news-area .single-news:hover .image .thumb {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.blog-list .single-news {
+    margin-bottom: 40px;
+}
+
+/* News Details */
+.blog-single {
+    background: #F4F7FA;
+}
+
+.blog-single .single-inner {
+    padding: 40px;
+    background-color: #fff;
+}
+
+.blog-single .post-thumbnils {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.blog-single .post-thumbnils img {
+    width: 100%;
+}
+
+.post-details .detail-inner {
+    background-color: #fff;
+    padding: 0;
+    margin-top: 40px;
+}
+
+.post-details .post-thumbnils {
+    margin-bottom: 30px;
+}
+
+.post-details .post-title {
+    font-weight: 700;
+    margin-top: 10px;
+    line-height: 32px;
+}
+
+.post-details .post-title a {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.post-details .post-title a:hover {
+    color: #265285;
+}
+
+ul.custom-flex {
+    list-style: none;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#team .row > [class*="col-"] {
+    display: flex;
+    flex-direction: column;
+}
+
+.single-team {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.single-team .info-head {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.single-team .info-head .info-box {
+    flex: 1;
+}

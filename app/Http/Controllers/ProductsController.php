@@ -47,7 +47,15 @@ class ProductsController extends Controller
         $validated = $request->validate(self::PRODUCT_VALIDATOR,self::PRODUCT_ERROR_MESSAGES);
         $description = $request->content;
 $sort = 0;
-        $product = Products::create(['title'=>$validated['title'],'content'=>$description,'rubrics_id'=>$validated['rubrics_id']]);
+         if ($request->on_main=='Y'){
+            $on_main='Y';
+        }  else
+        {
+            $on_main='N';
+        }
+
+        $product = Products::create(['title'=>$validated['title'],'content'=>$description,'rubrics_id'=>$validated['rubrics_id'],'on_main'=>$on_main]);
+
 
 
         if ($request->file) {
@@ -94,12 +102,20 @@ $sort = 0;
  }
     public function updateProduct(Request $request,Products $product){
 
+         //dd($request);
+
         $validated = $request->validate(self::PRODUCT_VALIDATOR,self::PRODUCT_ERROR_MESSAGES);
         $description = $request->content;
-        $product->fill(['title'=>$validated['title'],'content'=>$description]);
+        if ($request->on_main=='Y'){
+            $on_main='Y';
+        }  else
+        {
+            $on_main='N';
+        }
+        $product->fill(['title'=>$validated['title'],'content'=>$description,'on_main'=>$on_main]);
         $product->save();
-        if ($request->rubric_id) {
-            $product->fill(['rubrics_id'=>$request->rubric_id]);
+        if ($request->rubrics_id) {
+            $product->fill(['rubrics_id'=>$request->rubrics_id]);
             $product->save();
         }
         if ($request->file) {
@@ -153,7 +169,7 @@ $sort = 0;
 
             }
         }
-        if ($request->parameter) {
+       if ($request->parameter) {
             $parameters_new = [];
             $parameters_old = ProductParameters::where('products_id',$product->id)->pluck('parameter_id')->toArray();;
 

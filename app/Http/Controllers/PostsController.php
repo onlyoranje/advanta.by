@@ -20,7 +20,7 @@ class PostsController extends Controller
             if (isset($request->tag)) $query->where('tags', 'like', '%' .$request->tag. '%' );
 
         })->orderBy('id','desc')->paginate(10);
-        $title = 'Новости';
+        $title = 'Статьи';
         if ($request->category) $title.='. Категория "'.$request->category.'"';
         if ($request->tag) $title.='. #'.$request->tag;
         if ($request->page>1) $title.='. Страница '.$request->page;
@@ -28,11 +28,11 @@ class PostsController extends Controller
     }
     public function posts_dashboard(){
         $posts=Posts::orderBy('id','desc')->paginate(10);
-        return view('post.dashboard',['posts'=>$posts,'title'=>'Новости']);
+        return view('post.dashboard',['posts'=>$posts,'title'=>'Статьи']);
     }
     public function post_add(){
         $categories = Posts::whereNotNull('category')->groupBy('category')->pluck('category');
-        return view('post.add',['title'=>'Новости','categories'=>$categories]);
+        return view('post.add',['title'=>'Статьи','categories'=>$categories]);
     }
     public function post_add_db(Request $request){
         $trim_tag=Array();
@@ -62,14 +62,14 @@ class PostsController extends Controller
     }
     public function post_dashboard(Posts $post){
         $categories = Posts::whereNotNull('category')->groupBy('category')->pluck('category');
-        $title = 'Редактирование новости '.$post->title;
+        $title = 'Редактирование статьи '.$post->title;
         return view('post.edit',['title'=>$title,'post'=>$post,'categories'=>$categories]);
     }
     public function post(Posts $post){
         $title = $post->title;
 
 
-        $breadcrumbs['list'][] = Array('route'=>'posts','title'=>'Новости');
+        $breadcrumbs['list'][] = Array('route'=>'posts','title'=>'Статьи');
         $breadcrumbs['list'][] = Array('route'=>'posts','title'=>$post->category,'param'=>'?category='.$post->category);
         return view('post.detail',['title'=>$title,'post'=>$post,'breadcrumbs'=>$breadcrumbs]);
     }
@@ -100,7 +100,7 @@ class PostsController extends Controller
         return redirect()->route('posts_dashboard');
     }
     public function delete_post(Posts $post){
-        $title = "Удалить новость ".$post->title;
+        $title = "Удалить статью ".$post->title;
         return view('post.delete',['title'=>$title,'post'=>$post]);
     }
     public function destroy_post(Posts $post){

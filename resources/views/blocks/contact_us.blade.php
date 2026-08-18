@@ -2,7 +2,7 @@
     <div class="container">
         <div class="contact-head">
             <div class="inner-content">
-                <div class="row align-items-center">
+                <div class="row">
                     <div class="col-lg-4 col-12">
                         <div class="contact-info">
                             <div class="single-head">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="col-lg-8 col-12">
                         <div class="form-main">
-                            <h3 class="inner-title left">Contact Form</h3>
+                            <h3 class="inner-title left">Напишите нам</h3>
                             {!! $contact->crm_form !!}
                         </div>
                     </div>

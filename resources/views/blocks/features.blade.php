@@ -12,7 +12,9 @@
             </div>
         </div>
         <div class="row">
+            @if (is_array($features))
             @foreach($features as $feature)
+            @if ($feature['title'])
             <div class="col-lg-4 col-md-6 col-12">
                 <!-- Start Single Feature -->
                 <div class="single-feature wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
@@ -21,10 +23,10 @@
                     <p><a href="#">{{$feature['desc']}}</a></p>
                 </div>
             </div>
-
+                  @endif 
                 <!-- End Single Feature -->
                 @endforeach
-
+             @endif
 
         </div>
     </div>
